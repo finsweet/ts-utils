@@ -6,7 +6,6 @@ export { default as wait } from './wait';
 export { default as throwError } from './throwError';
 export { default as selectInputElement } from './selectInputElement';
 export { default as queryElement } from './queryElement';
-export { default as removeChildElements } from './removeChildElements';
 export { default as isVisible } from './isVisible';
 export { default as isScrollable } from './isScrollable';
 export { default as getObjectKeys } from './getObjectKeys';
