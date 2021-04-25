@@ -1,14 +1,10 @@
 {
-  "name": "@finsweet/developer-starter",
-  "version": "1.0.0",
-  "description": "Developer starter template for Finsweet projects.",
-  "main": "src/index.ts",
-  "scripts": {
-    "build": "node .\\bin\\build.js"
-  },
+  "name": "@finsweet/ts-utils",
+  "version": "0.1.0",
+  "description": "Typescript utils for custom Webflow projects.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/finsweet/developer-starter.git"
+    "url": "git+https://github.com/finsweet/ts-utils.git"
   },
   "keywords": [
     "webflow",
@@ -21,14 +17,13 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/finsweet/developer-starter/issues"
+    "url": "https://github.com/finsweet/ts-utils/issues"
   },
-  "homepage": "https://github.com/finsweet/developer-starter#readme",
+  "homepage": "https://github.com/finsweet/ts-utils#readme",
   "devDependencies": {
     "@finsweet/eslint-config": "^1.0.5",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
-    "esbuild": "^0.11.11",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
