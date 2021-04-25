@@ -1,15 +1,24 @@
 {
   "name": "@finsweet/ts-utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Typescript utils for custom Webflow projects.",
+  "main": "index.ts",
+  "module": "index.ts",
+  "type": "module",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/finsweet/ts-utils.git"
   },
+  "scripts": {
+    "build": "node .\\bin\\build.js"
+  },
   "keywords": [
     "webflow",
     "finsweet",
-    "no-code"
+    "no-code",
+    "typescript",
+    "utils"
   ],
   "author": {
     "name": "Finsweet",
