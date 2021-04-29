@@ -33,7 +33,8 @@ export default class Interaction {
   constructor({ element, duration }: InteractionParams) {
     this.element =
       typeof element === 'string'
-        ? queryElement(element, HTMLElement) || Debug.alert('NoInteraction', 'error')
+        ? queryElement(element, HTMLElement) ||
+          Debug.alert(`No interaction with the ${element} selector was found.`, 'error')
         : element;
 
     this.duration = {
