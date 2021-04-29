@@ -1,29 +1,36 @@
 import Interaction, { InteractionParams } from './Interaction';
 import { fadeIn, fadeOut } from '../animations/fade';
 import isVisible from '../helpers/isVisible';
+import { queryElement } from '../helpers';
+import { Debug } from '.';
 
 // Types
 export interface DisplayControllerParams {
-  element: HTMLElement;
+  element: HTMLElement | string;
   interaction?: InteractionParams;
   displayProperty?: 'block' | 'flex' | 'grid' | 'inline-block' | 'inline' | 'none';
   noTransition?: boolean;
 }
 
 export default class DisplayController {
-  private readonly displayProperty;
+  private readonly element: HTMLElement;
   private readonly interaction;
-  private readonly element;
   private readonly noTransition;
+  private readonly displayProperty: Required<DisplayControllerParams>['displayProperty'];
   private visible;
 
   constructor({ element, interaction, noTransition }: Omit<DisplayControllerParams, 'displayProperty'>);
   constructor({ element, displayProperty, noTransition }: Omit<DisplayControllerParams, 'interaction'>);
   constructor({ element, interaction, displayProperty, noTransition }: DisplayControllerParams) {
-    this.element = element;
+    this.element =
+      typeof element === 'string'
+        ? queryElement(element, HTMLElement) ||
+          Debug.alert(`No element with the ${element} selector was found.`, 'error')
+        : element;
+
     this.noTransition = noTransition;
-    this.visible = isVisible(element);
     this.displayProperty = displayProperty || 'block';
+    this.visible = isVisible(this.element);
 
     if (interaction) {
       const { element, duration } = interaction;
