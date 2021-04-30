@@ -2,25 +2,18 @@
  * Selects a custom radio or checkbox element
  * @param element Element to select
  * @param select - Defaults to true. If set to false, the input element will be unselected.
- * @returns The value of the element
+ * @returns The value of the element: Boolean for checkboxes and string for radios
  */
-const selectInputElement = (element: HTMLInputElement, select = true): string => {
-  if (element.type === 'checkbox' && select !== element.checked) element.click();
-
-  if (element.type === 'radio') {
-    // Add the checked class to the custom radio
-    const customInput = element.parentElement?.querySelector<HTMLDivElement>(
-      '.w-form-formradioinput--inputType-custom'
-    );
-    if (customInput) customInput.classList[select ? 'add' : 'remove']('w--redirected-checked');
-
-    // Set the radio as checked
+const selectInputElement = (element: HTMLInputElement, select = true): string | boolean => {
+  if (select !== element.checked) {
+    // Set the new checked value
     element.checked = select;
+    element.dispatchEvent(new Event('click', { bubbles: true }));
     element.dispatchEvent(new Event('input', { bubbles: true }));
     element.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
-  return element.value;
+  return element.type === 'checkbox' ? element.checked : element.value;
 };
 
 export default selectInputElement;
