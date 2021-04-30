@@ -8,9 +8,7 @@ const selectInputElement = (element: HTMLInputElement, select = true): string | 
   if (select !== element.checked) {
     // Set the new checked value
     element.checked = select;
-    element.dispatchEvent(new Event('click', { bubbles: true }));
-    element.dispatchEvent(new Event('input', { bubbles: true }));
-    element.dispatchEvent(new Event('change', { bubbles: true }));
+    ['click', 'input', 'change'].forEach((event) => element.dispatchEvent(new Event(event, { bubbles: true })));
   }
 
   return element.type === 'checkbox' ? element.checked : element.value;
