@@ -52,7 +52,7 @@ export default class Interaction {
     if ((click === 'first' && this.active) || (click === 'second' && !this.active)) return false;
     if (!click) click = this.active ? 'second' : 'first';
 
-    this.element.click();
+    this.element.dispatchEvent(new Event('click', { bubbles: true }));
 
     this.running = true;
     this.runningPromise = wait(this.duration[click]);
