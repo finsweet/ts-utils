@@ -1,7 +1,6 @@
 export { default as cloneNode } from './cloneNode';
 export { default as extractCommaSeparatedValues } from './extractCommaSeparatedValues';
 export { default as findTextNode } from './findTextNode';
-export { default as writableStore, WritableStore } from './writableStore';
 export { default as wait } from './wait';
 export { default as throwError } from './throwError';
 export { default as selectInputElement } from './selectInputElement';
