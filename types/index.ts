@@ -3,4 +3,6 @@ export { default as FormField } from './FormField';
 export { default as Instance } from './Instance';
 export { default as PartialExcept } from './PartialExcept';
 export { default as PickPartial } from './PickPartial';
+export { default as PickRequired } from './PickRequired';
+export { default as RequiredExcept } from './RequiredExcept';
 export { default as Webflow } from './Webflow';
