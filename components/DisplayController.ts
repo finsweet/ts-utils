@@ -48,7 +48,7 @@ export default class DisplayController {
    * Displays the element
    * @returns An awaitable promise
    */
-  public async display(): Promise<void> {
+  public async show(): Promise<void> {
     if (this.visible) return;
 
     if (this.interaction) await this.interaction.trigger('first');
