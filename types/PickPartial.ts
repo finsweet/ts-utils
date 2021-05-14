@@ -1,6 +1,6 @@
 /**
  * The picked keys will become Partial and the rest of the interface will stay the same.
  */
-type PickPartial<Object, Keys extends keyof Object> = Omit<Object, Keys> & Partial<Pick<Object, Keys>>;
+type PickPartial<Original, Keys extends keyof Original> = Omit<Original, Keys> & Partial<Pick<Original, Keys>>;
 
 export default PickPartial;
