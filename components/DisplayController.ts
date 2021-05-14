@@ -13,11 +13,12 @@ export interface DisplayControllerParams {
 }
 
 export default class DisplayController {
-  private readonly element: HTMLElement;
   private readonly interaction;
   private readonly noTransition;
   private readonly displayProperty: Required<DisplayControllerParams>['displayProperty'];
   private visible;
+
+  public readonly element: HTMLElement;
 
   constructor({ element, interaction, noTransition }: Omit<DisplayControllerParams, 'displayProperty'>);
   constructor({ element, displayProperty, noTransition }: Omit<DisplayControllerParams, 'interaction'>);
