@@ -10,6 +10,7 @@ export interface DisplayControllerParams {
   interaction?: InteractionParams;
   displayProperty?: 'block' | 'flex' | 'grid' | 'inline-block' | 'inline' | 'none';
   noTransition?: boolean;
+  startsHidden?: boolean;
 }
 
 export default class DisplayController {
@@ -20,9 +21,9 @@ export default class DisplayController {
 
   public readonly element: HTMLElement;
 
-  constructor({ element, interaction, noTransition }: Omit<DisplayControllerParams, 'displayProperty'>);
-  constructor({ element, displayProperty, noTransition }: Omit<DisplayControllerParams, 'interaction'>);
-  constructor({ element, interaction, displayProperty, noTransition }: DisplayControllerParams) {
+  constructor({ element, interaction, noTransition, startsHidden }: Omit<DisplayControllerParams, 'displayProperty'>);
+  constructor({ element, displayProperty, noTransition, startsHidden }: Omit<DisplayControllerParams, 'interaction'>);
+  constructor({ element, interaction, displayProperty, noTransition, startsHidden }: DisplayControllerParams) {
     this.element =
       typeof element === 'string'
         ? queryElement(element, HTMLElement) ||
@@ -31,7 +32,12 @@ export default class DisplayController {
 
     this.noTransition = noTransition;
     this.displayProperty = displayProperty || 'block';
-    this.visible = isVisible(this.element);
+
+    // Visibility check
+    if (startsHidden) {
+      this.element.style.display = 'none';
+      this.visible = false;
+    } else this.visible = isVisible(this.element);
 
     if (interaction) {
       const { element, duration } = interaction;
