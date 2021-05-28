@@ -6,10 +6,31 @@ import { Debug } from '.';
 
 // Types
 export interface DisplayControllerParams {
+  /**
+   * The main element. Accepts both an HTMLElement or a string selector.
+   */
   element: HTMLElement | string;
+
+  /**
+   * If the display must be controlled thorugh a Webflow interaction.
+   */
   interaction?: InteractionParams;
+
+  /**
+   * The display property of the element when displayed.
+   * Not applicable when interaction parameters ara passed to the instance, as it's assumed that the Webflow interaction will set the display property.
+   * Defaults to `block`.
+   */
   displayProperty?: 'block' | 'flex' | 'grid' | 'inline-block' | 'inline' | 'none';
+
+  /**
+   * If set to true, the element will be straitgh showed / hidden without any transition.
+   */
   noTransition?: boolean;
+
+  /**
+   * If set to true, the element will be set to `display: none`.
+   */
   startsHidden?: boolean;
 }
 
@@ -24,6 +45,7 @@ export default class DisplayController {
   constructor({ element, interaction, noTransition, startsHidden }: Omit<DisplayControllerParams, 'displayProperty'>);
   constructor({ element, displayProperty, noTransition, startsHidden }: Omit<DisplayControllerParams, 'interaction'>);
   constructor({ element, interaction, displayProperty, noTransition, startsHidden }: DisplayControllerParams) {
+    // Store properties
     this.element =
       typeof element === 'string'
         ? queryElement(element, HTMLElement) ||
