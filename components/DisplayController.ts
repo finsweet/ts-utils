@@ -34,6 +34,10 @@ export interface DisplayControllerParams {
   startsHidden?: boolean;
 }
 
+/**
+ * Controls showing/hiding an element.
+ * Works with Webflow interactions, built-in fade animations or no animations at all.
+ */
 export default class DisplayController {
   private readonly interaction;
   private readonly noTransition;
@@ -42,8 +46,6 @@ export default class DisplayController {
 
   public readonly element: HTMLElement;
 
-  constructor({ element, interaction, noTransition, startsHidden }: Omit<DisplayControllerParams, 'displayProperty'>);
-  constructor({ element, displayProperty, noTransition, startsHidden }: Omit<DisplayControllerParams, 'interaction'>);
   constructor({ element, interaction, displayProperty, noTransition, startsHidden }: DisplayControllerParams) {
     // Store properties
     this.element =
