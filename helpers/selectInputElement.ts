@@ -1,3 +1,5 @@
+import simulateEvent from './simulateEvent';
+
 /**
  * Selects a custom radio or checkbox element
  * @param element Element to select
@@ -8,7 +10,9 @@ const selectInputElement = (element: HTMLInputElement, select = true): string | 
   if (select !== element.checked) {
     // Set the new checked value
     element.checked = select;
-    ['click', 'input', 'change'].forEach((event) => element.dispatchEvent(new Event(event, { bubbles: true })));
+
+    // Emit DOM events
+    (['click', 'input', 'change'] as const).forEach((event) => simulateEvent(element, event));
   }
 
   return element.type === 'checkbox' ? element.checked : element.value;
