@@ -1,16 +1,20 @@
-import { queryElement } from '../helpers';
+import { queryElement, simulateEvent } from '../helpers';
 import wait from '../helpers/wait';
 import Debug from './Debug';
 
 // Types
 export interface InteractionParams {
+  /**
+   * The element that has a Webflow Ix2 Click interaction binded to it.
+   */
   element: HTMLElement | string;
-  duration?:
-    | number
-    | {
-        first?: number;
-        second?: number;
-      };
+
+  /**
+   * The duration of the interaction.
+   * If a single number is passed, it will be used for both first and second interactions.
+   * If an object is passed, you can specify the duration for each interaction.
+   */
+  duration?: number | Partial<Interaction['duration']>;
 }
 
 export default class Interaction {
@@ -52,7 +56,7 @@ export default class Interaction {
     if ((click === 'first' && this.active) || (click === 'second' && !this.active)) return false;
     if (!click) click = this.active ? 'second' : 'first';
 
-    this.element.dispatchEvent(new Event('click', { bubbles: true }));
+    simulateEvent(this.element, 'click');
 
     this.running = true;
     this.runningPromise = wait(this.duration[click]);
