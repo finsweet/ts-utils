@@ -21,7 +21,7 @@ export interface DisplayControllerParams {
    * Not applicable when interaction parameters ara passed to the instance, as it's assumed that the Webflow interaction will set the display property.
    * Defaults to `block`.
    */
-  displayProperty?: 'block' | 'flex' | 'grid' | 'inline-block' | 'inline' | 'none';
+  displayProperty?: typeof DisplayController['displayProperties'][number];
 
   /**
    * If set to true, the element will be straitgh showed / hidden without any transition.
@@ -45,6 +45,7 @@ export default class DisplayController {
   private visible;
 
   public readonly element: HTMLElement;
+  public static readonly displayProperties = ['block', 'flex', 'grid', 'inline-block', 'inline', 'none'] as const;
 
   constructor({ element, interaction, displayProperty, noTransition, startsHidden }: DisplayControllerParams) {
     // Store properties
