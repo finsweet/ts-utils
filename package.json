@@ -1,6 +1,6 @@
 {
   "name": "@finsweet/ts-utils",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Typescript utils for custom Webflow projects.",
   "main": "index.ts",
   "module": "index.ts",
