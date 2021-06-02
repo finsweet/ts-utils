@@ -45,7 +45,7 @@ export default class DisplayController {
   private visible;
 
   public readonly element: HTMLElement;
-  public static readonly displayProperties = ['block', 'flex', 'grid', 'inline-block', 'inline', 'none'] as const;
+  public static readonly displayProperties = ['block', 'flex', 'grid', 'inline-block', 'inline'] as const;
 
   constructor({ element, interaction, displayProperty, noTransition, startsHidden }: DisplayControllerParams) {
     // Store properties
