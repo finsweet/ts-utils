@@ -2,11 +2,12 @@
  * Restart Webflow JS library
  */
 const restartWebflow = (): void => {
-  if (!window.Webflow) return;
+  const { Webflow } = window;
+  if (!Webflow || !('destroy' in Webflow) || !('ready' in Webflow) || !('require' in Webflow)) return;
 
-  window.Webflow.destroy();
-  window.Webflow.ready();
-  window.Webflow.require('ix2')?.init();
+  Webflow.destroy();
+  Webflow.ready();
+  Webflow.require('ix2')?.init();
 };
 
 export default restartWebflow;

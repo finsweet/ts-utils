@@ -16,6 +16,6 @@ export default Webflow;
  */
 declare global {
   interface Window {
-    Webflow?: Webflow;
+    Webflow?: Webflow | [];
   }
 }
