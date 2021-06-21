@@ -1,4 +1,5 @@
-import Interaction, { InteractionParams } from './Interaction';
+import type { InteractionParams } from './Interaction';
+import Interaction from './Interaction';
 import { fadeIn, fadeOut } from '../animations/fade';
 import isVisible from '../helpers/isVisible';
 import { queryElement } from '../helpers';

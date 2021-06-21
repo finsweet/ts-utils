@@ -1,4 +1,4 @@
-import Entry from '../types/Entry';
+import type Entry from '../types/Entry';
 
 /**
  * Get type safe Object.entries()

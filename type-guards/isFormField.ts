@@ -1,4 +1,4 @@
-import FormField from '../types/FormField';
+import type FormField from '../types/FormField';
 
 /**
  * Checks if an element is a form field element

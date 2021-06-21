@@ -1,4 +1,4 @@
-import Instance from '../types/Instance';
+import type Instance from '../types/Instance';
 
 /**
  * Query an element and make sure it's the correct type
