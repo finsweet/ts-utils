@@ -1,3 +1,4 @@
+export { default as clearFormField } from './clearFormField';
 export { default as cloneNode } from './cloneNode';
 export { default as extractCommaSeparatedValues } from './extractCommaSeparatedValues';
 export { default as findTextNode } from './findTextNode';
