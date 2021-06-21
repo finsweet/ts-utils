@@ -9,7 +9,7 @@ import simulateEvent from './simulateEvent';
 const clearFormField = (field: FormField): void => {
   const { type } = field;
 
-  if (field instanceof HTMLInputElement && ['checkbox', 'radio'].includes(type)) {
+  if (field instanceof HTMLInputElement && ['checkbox', 'radio'].includes(type) && field.checked) {
     // Reset the field's value
     field.checked = false;
 
