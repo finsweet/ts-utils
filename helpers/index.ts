@@ -9,6 +9,7 @@ export { default as isScrollable } from './isScrollable';
 export { default as isVisible } from './isVisible';
 export { default as queryElement } from './queryElement';
 export { default as removeChildElements } from './removeChildElements';
+export { default as removeSpaces } from './removeSpaces';
 export { default as selectInputElement } from './selectInputElement';
 export { default as simulateEvent } from './simulateEvent';
 export { default as throwError } from './throwError';
