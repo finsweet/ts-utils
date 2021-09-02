@@ -1,7 +1,7 @@
 /**
  * Writable Store that runs callbacks every time the provided value is updated.
  */
-export default class WritableStore<T> {
+export class WritableStore<T> {
   private subscribeCallbacks: ((value: T) => void)[] = [];
 
   /**

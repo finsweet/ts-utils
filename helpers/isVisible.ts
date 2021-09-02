@@ -3,6 +3,4 @@
  * @param element
  */
 // prettier-ignore
-const isVisible = (element: HTMLElement): boolean => !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
-
-export default isVisible;
+export const isVisible = (element: HTMLElement): boolean => !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);

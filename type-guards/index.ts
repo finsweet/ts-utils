@@ -1,2 +1,2 @@
-export { default as isFormField } from './isFormField';
-export { default as isKeyOf } from './isKeyOf';
+export { isFormField } from './isFormField';
+export { isKeyOf } from './isKeyOf';

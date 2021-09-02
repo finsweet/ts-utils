@@ -1,10 +1,10 @@
-import type FormField from '../types/FormField';
+import type { FormField } from '../types/FormField';
 
 /**
  * Gets the value of a given input element.
  * @param {FormField} input
  */
-const getFormFieldValue = (input: FormField): string => {
+export const getFormFieldValue = (input: FormField): string => {
   let { value } = input;
 
   // Perform actions depending on input type
@@ -19,5 +19,3 @@ const getFormFieldValue = (input: FormField): string => {
 
   return value.toString();
 };
-
-export default getFormFieldValue;

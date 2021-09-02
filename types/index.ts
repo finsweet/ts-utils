@@ -1,8 +1,8 @@
-export { default as Entry } from './Entry';
-export { default as FormField } from './FormField';
-export { default as Instance } from './Instance';
-export { default as PartialExcept } from './PartialExcept';
-export { default as PickPartial } from './PickPartial';
-export { default as PickRequired } from './PickRequired';
-export { default as RequiredExcept } from './RequiredExcept';
-export { default as Webflow } from './Webflow';
+export { Entry } from './Entry';
+export { FormField } from './FormField';
+export { Instance } from './Instance';
+export { PartialExcept } from './PartialExcept';
+export { PickPartial } from './PickPartial';
+export { PickRequired } from './PickRequired';
+export { RequiredExcept } from './RequiredExcept';
+export { Webflow } from './Webflow';

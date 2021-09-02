@@ -1,7 +1,7 @@
 // Constants
 const alertTypes = ['info', 'error'] as const;
 
-export default class Debug {
+export class Debug {
   private static alertsActivated = false;
 
   public static activateAlerts(): void {

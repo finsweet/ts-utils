@@ -1,7 +1,7 @@
 import type { InteractionParams } from './Interaction';
-import Interaction from './Interaction';
+import { Interaction } from './Interaction';
 import { fadeIn, fadeOut } from '../animations/fade';
-import isVisible from '../helpers/isVisible';
+import { isVisible } from '../helpers/isVisible';
 import { queryElement } from '../helpers';
 import { Debug } from '.';
 
@@ -39,7 +39,7 @@ export interface DisplayControllerParams {
  * Controls showing/hiding an element.
  * Works with Webflow interactions, built-in fade animations or no animations at all.
  */
-export default class DisplayController {
+export class DisplayController {
   private readonly interaction;
   private readonly noTransition;
   private readonly displayProperty: Required<DisplayControllerParams>['displayProperty'];

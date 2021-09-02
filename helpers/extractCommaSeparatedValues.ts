@@ -1,4 +1,4 @@
-import isKeyOf from '../type-guards/isKeyOf';
+import { isKeyOf } from '../type-guards/isKeyOf';
 
 /**
  * Convert a string of comma separated values to an array of values
@@ -6,13 +6,13 @@ import isKeyOf from '../type-guards/isKeyOf';
  * @param compareSource Acts as a type guard for making sure the extracted values match the compared source
  * @param defaultValue Is set when there is no matching results after comparing with the source
  */
-function extractCommaSeparatedValues(string: string | null | undefined): string[];
-function extractCommaSeparatedValues<T extends string>(
+export function extractCommaSeparatedValues(string: string | null | undefined): string[];
+export function extractCommaSeparatedValues<T extends string>(
   string: string | null | undefined,
   compareSource: readonly T[],
   defaultValue?: T
 ): T[];
-function extractCommaSeparatedValues<T extends string>(
+export function extractCommaSeparatedValues<T extends string>(
   string: string | null | undefined,
   compareSource?: readonly T[],
   defaultValue?: T
@@ -28,5 +28,3 @@ function extractCommaSeparatedValues<T extends string>(
 
   return items;
 }
-
-export default extractCommaSeparatedValues;

@@ -4,9 +4,7 @@
  * @param source readonly array of strings
  * @returns True/false
  */
-const isKeyOf = <T extends string>(
+export const isKeyOf = <T extends string>(
   key: string | null | undefined,
   source: readonly T[]
 ): key is typeof source[number] => !!key && source.includes(<T>key);
-
-export default isKeyOf;

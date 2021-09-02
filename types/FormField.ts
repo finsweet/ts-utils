@@ -1,3 +1,1 @@
-type FormField = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-
-export default FormField;
+export type FormField = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;

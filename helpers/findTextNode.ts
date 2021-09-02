@@ -2,7 +2,7 @@
  * Find the first child text node of an element
  * @param element
  */
-const findTextNode = (element: HTMLElement): ChildNode | undefined => {
+export const findTextNode = (element: HTMLElement): ChildNode | undefined => {
   let textNode: ChildNode | undefined;
 
   for (const node of element.childNodes) {
@@ -13,5 +13,3 @@ const findTextNode = (element: HTMLElement): ChildNode | undefined => {
 
   return textNode;
 };
-
-export default findTextNode;

@@ -1,6 +1,6 @@
 import { queryElement, simulateEvent } from '../helpers';
-import wait from '../helpers/wait';
-import Debug from './Debug';
+import { wait } from '../helpers/wait';
+import { Debug } from './Debug';
 
 // Types
 export interface InteractionParams {
@@ -17,7 +17,7 @@ export interface InteractionParams {
   duration?: number | Partial<Interaction['duration']>;
 }
 
-export default class Interaction {
+export class Interaction {
   private readonly element: HTMLElement;
   private active = false;
   private running = false;
