@@ -3,6 +3,7 @@ export { cloneNode } from './cloneNode';
 export { extractCommaSeparatedValues } from './extractCommaSeparatedValues';
 export { extractNumberSuffix } from './extractNumberSuffix';
 export { findTextNode } from './findTextNode';
+export { getAllParents } from './getAllParents';
 export { getDistanceFromTop } from './getDistanceFromTop';
 export { getFormFieldValue } from './getFormFieldValue';
 export { getObjectEntries } from './getObjectEntries';
