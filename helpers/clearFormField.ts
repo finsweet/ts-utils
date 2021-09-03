@@ -14,7 +14,7 @@ export const clearFormField = (field: FormField): void => {
     field.checked = false;
 
     // Emit DOM events
-    (['click', 'input', 'change'] as const).forEach((event) => simulateEvent(field, event));
+    simulateEvent(field, ['click', 'input', 'change']);
 
     return;
   }
@@ -23,5 +23,5 @@ export const clearFormField = (field: FormField): void => {
   field.value = '';
 
   // Emit DOM events
-  (['input', 'change'] as const).forEach((event) => simulateEvent(field, event));
+  simulateEvent(field, ['input', 'change']);
 };

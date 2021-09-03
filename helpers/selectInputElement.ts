@@ -12,7 +12,7 @@ export const selectInputElement = (element: HTMLInputElement, select = true): st
     element.checked = select;
 
     // Emit DOM events
-    (['click', 'input', 'change'] as const).forEach((event) => simulateEvent(element, event));
+    simulateEvent(element, ['click', 'input', 'change']);
   }
 
   return element.type === 'checkbox' ? element.checked : element.value;
