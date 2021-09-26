@@ -9,12 +9,12 @@
 export function getCollectionElements(
   reference: string | Element,
   target: 'items',
-  page: Document
+  page?: Document
 ): NodeListOf<HTMLDivElement>;
 export function getCollectionElements(
   reference: string | Element,
   target: 'wrapper' | 'list',
-  page: Document
+  page?: Document
 ): HTMLDivElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
