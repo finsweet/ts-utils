@@ -1,12 +1,9 @@
 {
   "name": "@finsweet/ts-utils",
-  "version": "0.13.0",
+  "version": "0.13.2",
   "description": "Typescript utils for custom Webflow projects.",
   "main": "index.ts",
   "module": "index.ts",
-  "files": [
-    "index.ts"
-  ],
   "sideEffects": false,
   "type": "module",
   "repository": {
