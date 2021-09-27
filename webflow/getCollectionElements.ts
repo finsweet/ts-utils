@@ -13,20 +13,27 @@ export function getCollectionElements(
 ): NodeListOf<HTMLDivElement>;
 export function getCollectionElements(
   reference: string | Element,
+  target: 'next',
+  page?: Document
+): HTMLAnchorElement | null | undefined;
+export function getCollectionElements(
+  reference: string | Element,
   target: 'wrapper' | 'list',
   page?: Document
 ): HTMLDivElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
-  target: 'wrapper' | 'list' | 'items',
+  target: 'wrapper' | 'list' | 'items' | 'next',
   page: Document = document
-): HTMLDivElement | NodeListOf<HTMLDivElement> | null | undefined {
+): HTMLDivElement | NodeListOf<HTMLDivElement> | HTMLAnchorElement | null | undefined {
   const referenceElement = typeof reference === 'string' ? page.querySelector<HTMLDivElement>(reference) : reference;
   if (!referenceElement) return;
 
   if (target === 'wrapper') return referenceElement.closest<HTMLDivElement>(`.w-dyn-list`);
 
   if (target === 'items') return referenceElement.querySelectorAll<HTMLDivElement>('.w-dyn-item');
+
+  if (target === 'next') return referenceElement.querySelector<HTMLAnchorElement>('.w-pagination-next');
 
   return (
     referenceElement.querySelector<HTMLDivElement>(`.w-dyn-items`) ||
