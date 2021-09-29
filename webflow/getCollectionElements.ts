@@ -13,7 +13,7 @@ export function getCollectionElements(
 ): NodeListOf<HTMLDivElement>;
 export function getCollectionElements(
   reference: string | Element,
-  target: 'next',
+  target: 'next' | 'previous',
   page?: Document
 ): HTMLAnchorElement | null | undefined;
 export function getCollectionElements(
@@ -23,7 +23,7 @@ export function getCollectionElements(
 ): HTMLDivElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
-  target: 'wrapper' | 'list' | 'items' | 'next',
+  target: 'wrapper' | 'list' | 'items' | 'next' | 'previous',
   page: Document = document
 ): HTMLDivElement | NodeListOf<HTMLDivElement> | HTMLAnchorElement | null | undefined {
   const referenceElement = typeof reference === 'string' ? page.querySelector<HTMLDivElement>(reference) : reference;
@@ -34,6 +34,7 @@ export function getCollectionElements(
   if (target === 'items') return referenceElement.querySelectorAll<HTMLDivElement>('.w-dyn-item');
 
   if (target === 'next') return referenceElement.querySelector<HTMLAnchorElement>('.w-pagination-next');
+  if (target === 'previous') return referenceElement.querySelector<HTMLAnchorElement>('.w-pagination-previous');
 
   return (
     referenceElement.querySelector<HTMLDivElement>(`.w-dyn-items`) ||
