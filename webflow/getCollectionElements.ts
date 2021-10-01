@@ -1,3 +1,7 @@
+import { CMS_CSS_CLASSES } from '.';
+
+const { wrapper, list, item, paginationNext, paginationPrevious } = CMS_CSS_CLASSES;
+
 /**
  * This helper is intended to allow users setting the selectors to either the `Collection List Wrapper` or the `Collection List` elements.
  * This way there will never be any misunderstanding about the setup.
@@ -25,15 +29,14 @@ export function getCollectionElements(
   const referenceElement = typeof reference === 'string' ? page.querySelector<HTMLDivElement>(reference) : reference;
   if (!referenceElement) return;
 
-  if (target === 'wrapper') return referenceElement.closest<HTMLDivElement>(`.w-dyn-list`);
+  if (target === 'wrapper') return referenceElement.closest<HTMLDivElement>(`.${wrapper}`);
 
-  if (target === 'items') return [...referenceElement.querySelectorAll<HTMLDivElement>('.w-dyn-item')];
+  if (target === 'items') return [...referenceElement.querySelectorAll<HTMLDivElement>(`.${item}`)];
 
-  if (target === 'next') return referenceElement.querySelector<HTMLAnchorElement>('.w-pagination-next');
-  if (target === 'previous') return referenceElement.querySelector<HTMLAnchorElement>('.w-pagination-previous');
+  if (target === 'next') return referenceElement.querySelector<HTMLAnchorElement>(`.${paginationNext}`);
+  if (target === 'previous') return referenceElement.querySelector<HTMLAnchorElement>(`.${paginationPrevious}`);
 
   return (
-    referenceElement.querySelector<HTMLDivElement>(`.w-dyn-items`) ||
-    referenceElement.closest<HTMLDivElement>(`.w-dyn-items`)
+    referenceElement.querySelector<HTMLDivElement>(`.${list}`) || referenceElement.closest<HTMLDivElement>(`.${list}`)
   );
 }
