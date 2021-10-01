@@ -6,11 +6,7 @@
  * @param page The page document.
  * @returns The specified collection element/elements.
  */
-export function getCollectionElements(
-  reference: string | Element,
-  target: 'items',
-  page?: Document
-): NodeListOf<HTMLDivElement>;
+export function getCollectionElements(reference: string | Element, target: 'items', page?: Document): HTMLDivElement[];
 export function getCollectionElements(
   reference: string | Element,
   target: 'next' | 'previous',
@@ -25,13 +21,13 @@ export function getCollectionElements(
   reference: string | Element,
   target: 'wrapper' | 'list' | 'items' | 'next' | 'previous',
   page: Document = document
-): HTMLDivElement | NodeListOf<HTMLDivElement> | HTMLAnchorElement | null | undefined {
+): HTMLDivElement | HTMLDivElement[] | HTMLAnchorElement | null | undefined {
   const referenceElement = typeof reference === 'string' ? page.querySelector<HTMLDivElement>(reference) : reference;
   if (!referenceElement) return;
 
   if (target === 'wrapper') return referenceElement.closest<HTMLDivElement>(`.w-dyn-list`);
 
-  if (target === 'items') return referenceElement.querySelectorAll<HTMLDivElement>('.w-dyn-item');
+  if (target === 'items') return [...referenceElement.querySelectorAll<HTMLDivElement>('.w-dyn-item')];
 
   if (target === 'next') return referenceElement.querySelector<HTMLAnchorElement>('.w-pagination-next');
   if (target === 'previous') return referenceElement.querySelector<HTMLAnchorElement>('.w-pagination-previous');
