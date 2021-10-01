@@ -26,4 +26,4 @@ export const CMS_CSS_CLASSES = {
   item: 'w-dyn-item',
   paginationNext: 'w-pagination-next',
   paginationPrevious: 'w-pagination-previous',
-};
+} as const;
