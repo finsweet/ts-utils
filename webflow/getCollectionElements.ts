@@ -1,5 +1,12 @@
 import { CMS_CSS_CLASSES } from '.';
 
+import type {
+  CollectionItemElement,
+  CollectionListElement,
+  CollectionListWrapperElement,
+  PaginationButtonElement,
+} from '..';
+
 const { wrapper, list, item, paginationNext, paginationPrevious } = CMS_CSS_CLASSES;
 
 /**
@@ -10,33 +17,44 @@ const { wrapper, list, item, paginationNext, paginationPrevious } = CMS_CSS_CLAS
  * @param page The page document.
  * @returns The specified collection element/elements.
  */
-export function getCollectionElements(reference: string | Element, target: 'items', page?: Document): HTMLDivElement[];
+export function getCollectionElements(
+  reference: string | Element,
+  target: 'items',
+  page?: Document
+): CollectionItemElement[];
 export function getCollectionElements(
   reference: string | Element,
   target: 'next' | 'previous',
   page?: Document
-): HTMLAnchorElement | null | undefined;
+): PaginationButtonElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
   target: 'wrapper' | 'list',
   page?: Document
-): HTMLDivElement | null | undefined;
+): CollectionListWrapperElement | CollectionListElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
   target: 'wrapper' | 'list' | 'items' | 'next' | 'previous',
   page: Document = document
-): HTMLDivElement | HTMLDivElement[] | HTMLAnchorElement | null | undefined {
-  const referenceElement = typeof reference === 'string' ? page.querySelector<HTMLDivElement>(reference) : reference;
+):
+  | CollectionListWrapperElement
+  | CollectionListElement
+  | CollectionItemElement[]
+  | PaginationButtonElement
+  | null
+  | undefined {
+  const referenceElement = typeof reference === 'string' ? page.querySelector(reference) : reference;
   if (!referenceElement) return;
 
-  if (target === 'wrapper') return referenceElement.closest<HTMLDivElement>(`.${wrapper}`);
+  if (target === 'wrapper') return referenceElement.closest<CollectionListWrapperElement>(`.${wrapper}`);
 
-  if (target === 'items') return [...referenceElement.querySelectorAll<HTMLDivElement>(`.${item}`)];
+  if (target === 'items') return [...referenceElement.querySelectorAll<CollectionItemElement>(`.${item}`)];
 
-  if (target === 'next') return referenceElement.querySelector<HTMLAnchorElement>(`.${paginationNext}`);
-  if (target === 'previous') return referenceElement.querySelector<HTMLAnchorElement>(`.${paginationPrevious}`);
+  if (target === 'next') return referenceElement.querySelector<PaginationButtonElement>(`.${paginationNext}`);
+  if (target === 'previous') return referenceElement.querySelector<PaginationButtonElement>(`.${paginationPrevious}`);
 
   return (
-    referenceElement.querySelector<HTMLDivElement>(`.${list}`) || referenceElement.closest<HTMLDivElement>(`.${list}`)
+    referenceElement.querySelector<CollectionListElement>(`.${list}`) ||
+    referenceElement.closest<CollectionListElement>(`.${list}`)
   );
 }
