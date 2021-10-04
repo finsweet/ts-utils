@@ -7,7 +7,7 @@ import type {
   PaginationButtonElement,
 } from '..';
 
-const { wrapper, list, item, paginationNext, paginationPrevious } = CMS_CSS_CLASSES;
+const { wrapper, list, paginationNext, paginationPrevious } = CMS_CSS_CLASSES;
 
 /**
  * This helper is intended to allow users setting the selectors to either the `Collection List Wrapper` or the `Collection List` elements.
@@ -47,14 +47,14 @@ export function getCollectionElements(
   if (!referenceElement) return;
 
   if (target === 'wrapper') return referenceElement.closest<CollectionListWrapperElement>(`.${wrapper}`);
-
-  if (target === 'items') return [...referenceElement.querySelectorAll<CollectionItemElement>(`:scope > .${item}`)];
-
   if (target === 'next') return referenceElement.querySelector<PaginationButtonElement>(`.${paginationNext}`);
   if (target === 'previous') return referenceElement.querySelector<PaginationButtonElement>(`.${paginationPrevious}`);
 
-  return (
+  const collectionList =
     referenceElement.querySelector<CollectionListElement>(`.${list}`) ||
-    referenceElement.closest<CollectionListElement>(`.${list}`)
-  );
+    referenceElement.closest<CollectionListElement>(`.${list}`);
+  if (!collectionList) return;
+
+  if (target === 'items') return [...collectionList.children] as CollectionItemElement[];
+  if (target === 'list') return collectionList;
 }
