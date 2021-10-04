@@ -27,3 +27,12 @@ export const CMS_CSS_CLASSES = {
   paginationNext: 'w-pagination-next',
   paginationPrevious: 'w-pagination-previous',
 } as const;
+
+export const FORM_CSS_CLASSES = {
+  formBlock: 'w-form',
+  checkboxField: 'w-checkbox',
+  checkboxInput: 'w-checkbox-input',
+  radioField: 'w-radio',
+  radioInput: 'w-radio-input',
+  checkboxOrRadioLabel: 'w-form-label',
+} as const;
