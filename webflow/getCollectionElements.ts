@@ -48,7 +48,7 @@ export function getCollectionElements(
 
   if (target === 'wrapper') return referenceElement.closest<CollectionListWrapperElement>(`.${wrapper}`);
 
-  if (target === 'items') return [...referenceElement.querySelectorAll<CollectionItemElement>(`.${item}`)];
+  if (target === 'items') return [...referenceElement.querySelectorAll<CollectionItemElement>(`:scope > .${item}`)];
 
   if (target === 'next') return referenceElement.querySelector<PaginationButtonElement>(`.${paginationNext}`);
   if (target === 'previous') return referenceElement.querySelector<PaginationButtonElement>(`.${paginationPrevious}`);
