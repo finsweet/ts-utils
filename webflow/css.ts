@@ -4,6 +4,7 @@ export const SLIDER_CSS_CLASSES = {
   slider: 'w-slider',
   slide: 'w-slide',
   sliderMask: 'w-slider-mask',
+  sliderNav: 'w-slider-nav',
   sliderDot: 'w-slider-dot',
 } as const;
 
