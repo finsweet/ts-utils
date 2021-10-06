@@ -6,6 +6,7 @@ export const SLIDER_CSS_CLASSES = {
   sliderMask: 'w-slider-mask',
   sliderNav: 'w-slider-nav',
   sliderDot: 'w-slider-dot',
+  activeSliderDot: 'w-active',
 } as const;
 
 export const TABS_CSS_CLASSES = {
