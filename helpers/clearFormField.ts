@@ -9,12 +9,14 @@ import { simulateEvent } from './simulateEvent';
 export const clearFormField = (field: FormField): void => {
   const { type } = field;
 
-  if (field instanceof HTMLInputElement && ['checkbox', 'radio'].includes(type) && field.checked) {
-    // Reset the field's value
-    field.checked = false;
+  if (field instanceof HTMLInputElement && ['checkbox', 'radio'].includes(type)) {
+    if (field.checked) {
+      // Reset the field's value
+      field.checked = false;
 
-    // Emit DOM events
-    simulateEvent(field, ['click', 'input', 'change']);
+      // Emit DOM events
+      simulateEvent(field, ['click', 'input', 'change']);
+    }
 
     return;
   }
