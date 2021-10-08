@@ -1,4 +1,4 @@
-import { FORM_CSS_CLASSES } from '..';
+import { FORM_CSS_CLASSES } from '../webflow/css';
 import { simulateEvent } from './simulateEvent';
 
 import type { FormField } from '../types';
