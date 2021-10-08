@@ -37,4 +37,6 @@ export const FORM_CSS_CLASSES = {
   radioField: 'w-radio',
   radioInput: 'w-radio-input',
   checkboxOrRadioLabel: 'w-form-label',
+  checkboxOrRadioFocus: 'w--redirected-focus',
+  checkboxOrRadioChecked: 'w--redirected-checked',
 } as const;
