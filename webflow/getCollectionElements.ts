@@ -20,11 +20,6 @@ const { wrapper, list, paginationNext, paginationPrevious, emptyState } = CMS_CS
  */
 export function getCollectionElements(
   reference: string | Element,
-  target: 'items',
-  page?: Document
-): CollectionItemElement[];
-export function getCollectionElements(
-  reference: string | Element,
   target: 'next' | 'previous',
   page?: Document
 ): PaginationButtonElement | null | undefined;
@@ -33,6 +28,11 @@ export function getCollectionElements(
   target: 'empty',
   page?: Document
 ): CollectionEmptyElement | null | undefined;
+export function getCollectionElements(
+  reference: string | Element,
+  target: 'items',
+  page?: Document
+): CollectionItemElement[];
 export function getCollectionElements(
   reference: string | Element,
   target: 'list',
@@ -45,7 +45,7 @@ export function getCollectionElements(
 ): CollectionListWrapperElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
-  target: 'wrapper' | 'list' | 'empty' | 'items' | 'next' | 'previous',
+  target: 'wrapper' | 'list' | 'items' | 'empty' | 'next' | 'previous',
   page: Document = document
 ):
   | CollectionListWrapperElement
@@ -66,7 +66,8 @@ export function getCollectionElements(
   if (target === 'list') return collectionList;
   if (target === 'items') return [...(collectionList?.children || [])] as CollectionItemElement[];
   if (target === 'empty') return collectionListWrapper.querySelector<CollectionListWrapperElement>(`.${emptyState}`);
-  if (target === 'next') return collectionListWrapper.querySelector<PaginationButtonElement>(`.${paginationNext}`);
-  if (target === 'previous')
-    return collectionListWrapper.querySelector<PaginationButtonElement>(`.${paginationPrevious}`);
+
+  return collectionListWrapper.querySelector<PaginationButtonElement>(
+    `.${target === 'next' ? paginationNext : paginationPrevious}`
+  );
 }
