@@ -57,15 +57,16 @@ export function getCollectionElements(
   const referenceElement = typeof reference === 'string' ? page.querySelector(reference) : reference;
   if (!referenceElement) return;
 
-  if (target === 'wrapper') return referenceElement.closest<CollectionListWrapperElement>(`.${wrapper}`);
-  if (target === 'empty') return referenceElement.closest<CollectionListWrapperElement>(`.${emptyState}`);
-  if (target === 'next') return referenceElement.querySelector<PaginationButtonElement>(`.${paginationNext}`);
-  if (target === 'previous') return referenceElement.querySelector<PaginationButtonElement>(`.${paginationPrevious}`);
+  const collectionListWrapper = referenceElement.closest<CollectionListWrapperElement>(`.${wrapper}`);
+  if (!collectionListWrapper) return;
 
-  const collectionList =
-    referenceElement.querySelector<CollectionListElement>(`.${list}`) ||
-    referenceElement.closest<CollectionListElement>(`.${list}`);
+  const collectionList = collectionListWrapper.querySelector<CollectionListElement>(`.${list}`);
 
-  if (target === 'items') return [...(collectionList?.children || [])] as CollectionItemElement[];
+  if (target === 'wrapper') return collectionListWrapper;
   if (target === 'list') return collectionList;
+  if (target === 'items') return [...(collectionList?.children || [])] as CollectionItemElement[];
+  if (target === 'empty') return collectionListWrapper.querySelector<CollectionListWrapperElement>(`.${emptyState}`);
+  if (target === 'next') return collectionListWrapper.querySelector<PaginationButtonElement>(`.${paginationNext}`);
+  if (target === 'previous')
+    return collectionListWrapper.querySelector<PaginationButtonElement>(`.${paginationPrevious}`);
 }
