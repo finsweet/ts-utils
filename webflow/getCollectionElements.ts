@@ -1,13 +1,14 @@
 import { CMS_CSS_CLASSES } from '.';
 
 import type {
+  CollectionEmptyElement,
   CollectionItemElement,
   CollectionListElement,
   CollectionListWrapperElement,
   PaginationButtonElement,
 } from '..';
 
-const { wrapper, list, paginationNext, paginationPrevious } = CMS_CSS_CLASSES;
+const { wrapper, list, paginationNext, paginationPrevious, emptyState } = CMS_CSS_CLASSES;
 
 /**
  * This helper is intended to allow users setting the selectors to either the `Collection List Wrapper` or the `Collection List` elements.
@@ -29,12 +30,22 @@ export function getCollectionElements(
 ): PaginationButtonElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
-  target: 'wrapper' | 'list',
+  target: 'empty',
   page?: Document
-): CollectionListWrapperElement | CollectionListElement | null | undefined;
+): CollectionEmptyElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
-  target: 'wrapper' | 'list' | 'items' | 'next' | 'previous',
+  target: 'list',
+  page?: Document
+): CollectionListElement | null | undefined;
+export function getCollectionElements(
+  reference: string | Element,
+  target: 'wrapper',
+  page?: Document
+): CollectionListWrapperElement | null | undefined;
+export function getCollectionElements(
+  reference: string | Element,
+  target: 'wrapper' | 'list' | 'empty' | 'items' | 'next' | 'previous',
   page: Document = document
 ):
   | CollectionListWrapperElement
@@ -47,6 +58,7 @@ export function getCollectionElements(
   if (!referenceElement) return;
 
   if (target === 'wrapper') return referenceElement.closest<CollectionListWrapperElement>(`.${wrapper}`);
+  if (target === 'empty') return referenceElement.closest<CollectionListWrapperElement>(`.${emptyState}`);
   if (target === 'next') return referenceElement.querySelector<PaginationButtonElement>(`.${paginationNext}`);
   if (target === 'previous') return referenceElement.querySelector<PaginationButtonElement>(`.${paginationPrevious}`);
 
@@ -54,6 +66,6 @@ export function getCollectionElements(
     referenceElement.querySelector<CollectionListElement>(`.${list}`) ||
     referenceElement.closest<CollectionListElement>(`.${list}`);
 
-  if (target === 'items') return collectionList ? ([...collectionList.children] as CollectionItemElement[]) : [];
+  if (target === 'items') [...(collectionList?.children || [])] as CollectionItemElement[];
   if (target === 'list') return collectionList;
 }

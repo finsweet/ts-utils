@@ -28,6 +28,7 @@ export const CMS_CSS_CLASSES = {
   item: 'w-dyn-item',
   paginationNext: 'w-pagination-next',
   paginationPrevious: 'w-pagination-previous',
+  emptyState: 'w-dyn-empty',
 } as const;
 
 export const FORM_CSS_CLASSES = {
