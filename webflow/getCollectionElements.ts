@@ -66,6 +66,6 @@ export function getCollectionElements(
     referenceElement.querySelector<CollectionListElement>(`.${list}`) ||
     referenceElement.closest<CollectionListElement>(`.${list}`);
 
-  if (target === 'items') [...(collectionList?.children || [])] as CollectionItemElement[];
+  if (target === 'items') return [...(collectionList?.children || [])] as CollectionItemElement[];
   if (target === 'list') return collectionList;
 }
