@@ -53,8 +53,7 @@ export function getCollectionElements(
   const collectionList =
     referenceElement.querySelector<CollectionListElement>(`.${list}`) ||
     referenceElement.closest<CollectionListElement>(`.${list}`);
-  if (!collectionList) return;
 
-  if (target === 'items') return [...collectionList.children] as CollectionItemElement[];
+  if (target === 'items') return collectionList ? ([...collectionList.children] as CollectionItemElement[]) : [];
   if (target === 'list') return collectionList;
 }
