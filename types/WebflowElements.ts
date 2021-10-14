@@ -32,3 +32,8 @@ export type TabsMenuElement = HTMLDivElement;
 export type TabLinkElement = HTMLDivElement;
 export type TabsContentElement = HTMLDivElement;
 export type TabPaneElement = HTMLDivElement;
+
+/**
+ * Rich Text Block
+ */
+export type RichTextBlockElement = HTMLDivElement;
