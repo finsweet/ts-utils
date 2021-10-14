@@ -1,5 +1,7 @@
 export const CURRENT_CSS_CLASS = 'w--current';
 
+export const RICH_TEXT_BLOCK_CSS_CLASS = 'w-richtext';
+
 export const SLIDER_CSS_CLASSES = {
   slider: 'w-slider',
   slide: 'w-slide',
