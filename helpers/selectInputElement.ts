@@ -1,6 +1,9 @@
 import { simulateEvent } from './simulateEvent';
 
 /**
+ * **DEPRECATED: Please use the new `setFormFieldValue` method instead.**
+ *
+ *
  * Selects a custom radio or checkbox element
  * @param element Element to select
  * @param select - Defaults to true. If set to false, the input element will be unselected.

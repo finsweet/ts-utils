@@ -14,6 +14,7 @@ export { queryElement } from './queryElement';
 export { removeChildElements } from './removeChildElements';
 export { removeSpaces } from './removeSpaces';
 export { selectInputElement } from './selectInputElement';
+export { setFormFieldValue } from './setFormFieldValue';
 export { simulateEvent } from './simulateEvent';
 export { throwError } from './throwError';
 export { wait } from './wait';
