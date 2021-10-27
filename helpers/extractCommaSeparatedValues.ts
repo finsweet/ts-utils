@@ -19,7 +19,14 @@ export function extractCommaSeparatedValues<T extends string>(
 ): string[] | T[] {
   const emptyValue = defaultValue ? [defaultValue] : [];
   if (!string) return emptyValue;
-  const items = string.split(/[ ,]+/);
+
+  const items = string.split(',').reduce<string[]>((accumulatedValue, currentValue) => {
+    const value = currentValue.trim();
+
+    if (value) accumulatedValue.push(value);
+
+    return accumulatedValue;
+  }, []);
 
   if (compareSource) {
     const matches = items.filter((item) => isKeyOf(item, compareSource)) as T[];
