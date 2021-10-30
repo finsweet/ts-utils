@@ -5,6 +5,7 @@ export type CollectionListWrapperElement = HTMLDivElement;
 export type CollectionListElement = HTMLDivElement;
 export type CollectionItemElement = HTMLDivElement;
 export type CollectionEmptyElement = HTMLDivElement;
+export type PaginationWrapperElement = HTMLDivElement;
 export type PaginationButtonElement = HTMLAnchorElement;
 
 /**

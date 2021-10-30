@@ -6,9 +6,10 @@ import type {
   CollectionListElement,
   CollectionListWrapperElement,
   PaginationButtonElement,
+  PaginationWrapperElement,
 } from '..';
 
-const { wrapper, list, paginationNext, paginationPrevious, emptyState } = CMS_CSS_CLASSES;
+const { wrapper, list, paginationWrapper, paginationNext, paginationPrevious, emptyState } = CMS_CSS_CLASSES;
 
 /**
  * This helper is intended to allow users setting the selectors to either the `Collection List Wrapper` or the `Collection List` elements.
@@ -23,6 +24,11 @@ export function getCollectionElements(
   target: 'next' | 'previous',
   page?: Document
 ): PaginationButtonElement | null | undefined;
+export function getCollectionElements(
+  reference: string | Element,
+  target: 'pagination',
+  page?: Document
+): PaginationWrapperElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
   target: 'empty',
@@ -45,7 +51,7 @@ export function getCollectionElements(
 ): CollectionListWrapperElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
-  target: 'wrapper' | 'list' | 'items' | 'empty' | 'next' | 'previous',
+  target: 'wrapper' | 'list' | 'items' | 'empty' | 'pagination' | 'next' | 'previous',
   page: Document = document
 ):
   | CollectionListWrapperElement
@@ -66,6 +72,9 @@ export function getCollectionElements(
   if (target === 'list') return collectionList;
   if (target === 'items') return [...(collectionList?.children || [])] as CollectionItemElement[];
   if (target === 'empty') return collectionListWrapper.querySelector<CollectionListWrapperElement>(`.${emptyState}`);
+  if (target === 'pagination') {
+    return collectionListWrapper.querySelector<PaginationWrapperElement>(`.${paginationWrapper}`);
+  }
 
   return collectionListWrapper.querySelector<PaginationButtonElement>(
     `.${target === 'next' ? paginationNext : paginationPrevious}`

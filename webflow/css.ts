@@ -30,6 +30,7 @@ export const CMS_CSS_CLASSES = {
   wrapper: 'w-dyn-list',
   list: 'w-dyn-items',
   item: 'w-dyn-item',
+  paginationWrapper: 'w-pagination-wrapper',
   paginationNext: 'w-pagination-next',
   paginationPrevious: 'w-pagination-previous',
   emptyState: 'w-dyn-empty',
