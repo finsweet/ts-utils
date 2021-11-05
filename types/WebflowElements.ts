@@ -7,6 +7,7 @@ export type CollectionItemElement = HTMLDivElement;
 export type CollectionEmptyElement = HTMLDivElement;
 export type PaginationWrapperElement = HTMLDivElement;
 export type PaginationButtonElement = HTMLAnchorElement;
+export type PageCountElement = HTMLDivElement;
 
 /**
  * Forms

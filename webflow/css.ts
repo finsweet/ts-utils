@@ -33,6 +33,7 @@ export const CMS_CSS_CLASSES = {
   paginationWrapper: 'w-pagination-wrapper',
   paginationNext: 'w-pagination-next',
   paginationPrevious: 'w-pagination-previous',
+  pageCount: 'w-page-count',
   emptyState: 'w-dyn-empty',
 } as const;
 

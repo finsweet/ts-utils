@@ -5,11 +5,12 @@ import type {
   CollectionItemElement,
   CollectionListElement,
   CollectionListWrapperElement,
+  PageCountElement,
   PaginationButtonElement,
   PaginationWrapperElement,
 } from '..';
 
-const { wrapper, list, paginationWrapper, paginationNext, paginationPrevious, emptyState } = CMS_CSS_CLASSES;
+const { wrapper, list, paginationWrapper, paginationNext, paginationPrevious, emptyState, pageCount } = CMS_CSS_CLASSES;
 
 /**
  * This helper is intended to allow users setting the selectors to either the `Collection List Wrapper` or the `Collection List` elements.
@@ -19,6 +20,11 @@ const { wrapper, list, paginationWrapper, paginationNext, paginationPrevious, em
  * @param page The page document.
  * @returns The specified collection element/elements.
  */
+export function getCollectionElements(
+  reference: string | Element,
+  target: 'pageCount',
+  page?: Document
+): PageCountElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
   target: 'next' | 'previous',
@@ -51,13 +57,15 @@ export function getCollectionElements(
 ): CollectionListWrapperElement | null | undefined;
 export function getCollectionElements(
   reference: string | Element,
-  target: 'wrapper' | 'list' | 'items' | 'empty' | 'pagination' | 'next' | 'previous',
+  target: 'wrapper' | 'list' | 'items' | 'empty' | 'pagination' | 'next' | 'previous' | 'pageCount',
   page: Document = document
 ):
   | CollectionListWrapperElement
   | CollectionListElement
   | CollectionItemElement[]
   | PaginationButtonElement
+  | PageCountElement
+  | CollectionEmptyElement
   | null
   | undefined {
   const referenceElement = typeof reference === 'string' ? page.querySelector(reference) : reference;
@@ -72,6 +80,7 @@ export function getCollectionElements(
   if (target === 'list') return collectionList;
   if (target === 'items') return [...(collectionList?.children || [])] as CollectionItemElement[];
   if (target === 'empty') return collectionListWrapper.querySelector<CollectionListWrapperElement>(`.${emptyState}`);
+  if (target === 'pageCount') return collectionListWrapper.querySelector<PageCountElement>(`.${pageCount}`);
   if (target === 'pagination') {
     return collectionListWrapper.querySelector<PaginationWrapperElement>(`.${paginationWrapper}`);
   }
