@@ -8,7 +8,11 @@ import type { WebflowBreakpoint } from './breakpoints';
  * @returns A {@link WebflowBreakpoint} string.
  */
 export const getCurrentBreakpoint = (): WebflowBreakpoint => {
-  for (const [breakpoint, mediaQuery] of WEBFLOW_BREAKPOINTS) if (window.matchMedia(mediaQuery)) return breakpoint;
+  for (const [breakpoint, mediaQuery] of WEBFLOW_BREAKPOINTS) {
+    if (window.matchMedia(mediaQuery).matches) {
+      return breakpoint;
+    }
+  }
 
   return 'main';
 };
