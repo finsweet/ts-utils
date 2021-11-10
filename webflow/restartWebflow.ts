@@ -13,6 +13,8 @@ export const restartWebflow = async (modules?: WebflowModule[]): Promise<unknown
   const { Webflow } = window;
   if (!Webflow || !('destroy' in Webflow) || !('ready' in Webflow) || !('require' in Webflow)) return;
 
+  if (modules && !modules.length) return;
+
   // Global
   if (!modules) {
     Webflow.destroy();
