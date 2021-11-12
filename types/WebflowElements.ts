@@ -39,3 +39,10 @@ export type TabPaneElement = HTMLDivElement;
  * Rich Text Block
  */
 export type RichTextBlockElement = HTMLDivElement;
+
+/**
+ * Dropdowns
+ */
+export type Dropdown = HTMLDivElement;
+export type DropdownToggle = HTMLDivElement;
+export type DropdownList = HTMLElement;
