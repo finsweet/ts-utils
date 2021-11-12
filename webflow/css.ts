@@ -47,3 +47,9 @@ export const FORM_CSS_CLASSES = {
   checkboxOrRadioFocus: 'w--redirected-focus',
   checkboxOrRadioChecked: 'w--redirected-checked',
 } as const;
+
+export const DROPDOWN_CSS_CLASSES = {
+  dropdown: 'w-dropdown',
+  dropdownToggle: 'w-dropdown-toggle',
+  dropdownList: 'w-dropdown-list',
+};

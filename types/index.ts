@@ -6,5 +6,5 @@ export type { PartialExcept } from './PartialExcept';
 export type { PickPartial } from './PickPartial';
 export type { PickRequired } from './PickRequired';
 export type { RequiredExcept } from './RequiredExcept';
-export type { Webflow, WebflowModule } from './Webflow';
+export * from './Webflow';
 export * from './WebflowElements';
