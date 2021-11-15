@@ -26,8 +26,14 @@ export const restartWebflow = async (modules?: WebflowModule[]): Promise<unknown
     const ix2 = Webflow.require('ix2');
 
     if (ix2) {
-      ix2.destroy();
+      const { store, actions } = ix2;
+      const { eventState } = store.getState().ixSession;
+
+      if (!modules) ix2.destroy();
+
       ix2.init();
+
+      for (const state of Object.entries(eventState)) store.dispatch(actions.eventStateChanged(...state));
     }
   }
 
