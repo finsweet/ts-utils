@@ -57,3 +57,7 @@ export const DROPDOWN_CSS_CLASSES = {
 export const COMMERCE_CSS_CLASSES = {
   addToCartForm: 'w-commerce-commerceaddtocartform',
 } as const;
+
+export const LIGHTBOX_CSS_CLASSES = {
+  trigger: 'w-lightbox',
+} as const;
