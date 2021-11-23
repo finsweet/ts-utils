@@ -48,5 +48,12 @@ export const restartWebflow = async (modules?: WebflowModule[]): Promise<unknown
     }
   }
 
+  // Lightbox
+  if (modules?.includes('lightbox')) {
+    const lightbox = Webflow.require('lightbox');
+
+    lightbox?.ready();
+  }
+
   return new Promise((resolve) => Webflow.push(() => resolve(undefined)));
 };

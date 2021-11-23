@@ -10,6 +10,12 @@ interface WebflowCommerce {
   init: (params: { siteId: string; apiUrl: string }) => void;
 }
 
+interface WebflowLightbox {
+  preview: () => void;
+  design: () => void;
+  ready: () => void;
+}
+
 interface WebflowIx2 {
   destroy: () => void;
   init: () => void;
@@ -52,7 +58,9 @@ export interface Webflow extends Pick<Callback[], 'push'> {
   destroy: () => void;
   ready: () => void;
   env: () => boolean;
-  require: <Key extends WebflowModule>(key: Key) => (Key extends 'commerce' ? WebflowCommerce : WebflowIx2) | undefined;
+  require: <Key extends WebflowModule>(
+    key: Key
+  ) => (Key extends 'commerce' ? WebflowCommerce : Key extends 'lightbox' ? WebflowLightbox : WebflowIx2) | undefined;
 }
 
 /**
