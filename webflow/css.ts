@@ -52,4 +52,8 @@ export const DROPDOWN_CSS_CLASSES = {
   dropdown: 'w-dropdown',
   dropdownToggle: 'w-dropdown-toggle',
   dropdownList: 'w-dropdown-list',
-};
+} as const;
+
+export const COMMERCE_CSS_CLASSES = {
+  addToCartForm: 'w-commerce-commerceaddtocartform',
+} as const;
