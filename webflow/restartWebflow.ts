@@ -1,6 +1,6 @@
 import { getSiteId } from '.';
 
-import type { WebflowModule } from '../types/Webflow';
+import type { WebflowModule } from './Webflow';
 
 /**
  * Restarts the Webflow JS library.
