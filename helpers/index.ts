@@ -13,6 +13,7 @@ export { isVisible } from './isVisible';
 export { queryElement } from './queryElement';
 export { removeChildElements } from './removeChildElements';
 export { removeSpaces } from './removeSpaces';
+export { removeTrailingSlash } from './removeTrailingSlash';
 export { sameValues } from './sameValues';
 export { selectInputElement } from './selectInputElement';
 export { setFormFieldValue } from './setFormFieldValue';
