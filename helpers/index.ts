@@ -6,6 +6,7 @@ export { findTextNode } from './findTextNode';
 export { getAllParents } from './getAllParents';
 export { getDistanceFromTop } from './getDistanceFromTop';
 export { getFormFieldValue } from './getFormFieldValue';
+export { getHiddenParent } from './getHiddenParent';
 export { getObjectEntries } from './getObjectEntries';
 export { getObjectKeys } from './getObjectKeys';
 export { isScrollable } from './isScrollable';
