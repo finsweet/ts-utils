@@ -79,8 +79,10 @@ export function getCollectionElements(
   if (target === 'wrapper') return collectionListWrapper;
   if (target === 'list') return collectionList;
   if (target === 'items') return [...(collectionList?.children || [])] as CollectionItemElement[];
-  if (target === 'empty') return collectionListWrapper.querySelector<CollectionListWrapperElement>(`.${emptyState}`);
   if (target === 'pageCount') return collectionListWrapper.querySelector<PageCountElement>(`.${pageCount}`);
+  if (target === 'empty') {
+    return collectionListWrapper.querySelector<CollectionListWrapperElement>(`:scope > .${emptyState}`);
+  }
   if (target === 'pagination') {
     return collectionListWrapper.querySelector<PaginationWrapperElement>(`.${paginationWrapper}`);
   }
