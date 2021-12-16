@@ -3,7 +3,7 @@
  */
 type Callback = () => unknown;
 
-export type WebflowModule = 'ix2' | 'commerce' | 'lottie' | 'lightbox';
+export type WebflowModule = 'ix2' | 'commerce' | 'lottie' | 'lightbox' | 'slider';
 
 interface WebflowCommerce {
   destroy: () => void;
@@ -14,6 +14,14 @@ interface WebflowLightbox {
   preview: () => void;
   design: () => void;
   ready: () => void;
+}
+
+interface WebflowSlider {
+  preview: () => void;
+  design: () => void;
+  ready: () => void;
+  destroy: () => void;
+  redraw: () => void;
 }
 
 interface WebflowIx2 {
@@ -60,7 +68,15 @@ export interface Webflow extends Pick<Callback[], 'push'> {
   env: () => boolean;
   require: <Key extends WebflowModule>(
     key: Key
-  ) => (Key extends 'commerce' ? WebflowCommerce : Key extends 'lightbox' ? WebflowLightbox : WebflowIx2) | undefined;
+  ) =>
+    | (Key extends 'commerce'
+        ? WebflowCommerce
+        : Key extends 'lightbox'
+        ? WebflowLightbox
+        : Key extends 'slider'
+        ? WebflowSlider
+        : WebflowIx2)
+    | undefined;
 }
 
 /**

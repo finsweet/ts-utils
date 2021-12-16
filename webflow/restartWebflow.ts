@@ -55,5 +55,12 @@ export const restartWebflow = async (modules?: WebflowModule[]): Promise<unknown
     lightbox?.ready();
   }
 
+  // Slider
+  if (modules?.includes('slider')) {
+    const slider = Webflow.require('slider');
+
+    slider?.redraw();
+  }
+
   return new Promise((resolve) => Webflow.push(() => resolve(undefined)));
 };
