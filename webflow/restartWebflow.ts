@@ -49,18 +49,10 @@ export const restartWebflow = async (modules?: WebflowModule[]): Promise<unknown
   }
 
   // Lightbox
-  if (modules?.includes('lightbox')) {
-    const lightbox = Webflow.require('lightbox');
-
-    lightbox?.ready();
-  }
+  if (modules?.includes('lightbox')) Webflow.require('lightbox')?.ready();
 
   // Slider
-  if (modules?.includes('slider')) {
-    const slider = Webflow.require('slider');
-
-    slider?.redraw();
-  }
+  if (modules?.includes('slider')) Webflow.require('slider')?.redraw();
 
   return new Promise((resolve) => Webflow.push(() => resolve(undefined)));
 };
