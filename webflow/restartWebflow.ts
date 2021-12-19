@@ -54,5 +54,8 @@ export const restartWebflow = async (modules?: WebflowModule[]): Promise<unknown
   // Slider
   if (modules?.includes('slider')) Webflow.require('slider')?.redraw();
 
+  // Tabs
+  if (modules?.includes('tabs')) Webflow.require('tabs')?.redraw();
+
   return new Promise((resolve) => Webflow.push(() => resolve(undefined)));
 };
