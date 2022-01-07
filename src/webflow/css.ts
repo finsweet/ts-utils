@@ -46,6 +46,8 @@ export const FORM_CSS_CLASSES = {
   checkboxOrRadioLabel: 'w-form-label',
   checkboxOrRadioFocus: 'w--redirected-focus',
   checkboxOrRadioChecked: 'w--redirected-checked',
+  successMessage: 'w-form-done',
+  errorMessage: 'w-form-fail',
 } as const;
 
 export const DROPDOWN_CSS_CLASSES = {

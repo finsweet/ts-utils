@@ -39,6 +39,8 @@ export declare const FORM_CSS_CLASSES: {
     readonly checkboxOrRadioLabel: "w-form-label";
     readonly checkboxOrRadioFocus: "w--redirected-focus";
     readonly checkboxOrRadioChecked: "w--redirected-checked";
+    readonly successMessage: "w-form-done";
+    readonly errorMessage: "w-form-fail";
 };
 export declare const DROPDOWN_CSS_CLASSES: {
     readonly dropdown: "w-dropdown";
