@@ -1,18 +1,19 @@
 import { simulateEvent } from '.';
 export const setFormFieldValue = (element, value) => {
     const { type } = element;
-    if (typeof value === 'boolean') {
+    const isRadio = type === 'radio';
+    const isCheckbox = type === 'checkbox';
+    if (isRadio || isCheckbox) {
         if (!(element instanceof HTMLInputElement) ||
-            (type !== 'radio' && type !== 'checkbox') ||
-            (type === 'checkbox' && value === false) ||
-            value === element.checked)
+            typeof value !== 'boolean' ||
+            value === element.checked ||
+            (isRadio && value === false)) {
             return;
+        }
         element.checked = value;
     }
-    else {
-        if (type === 'radio' || type === 'checkbox' || element.value === value)
-            return;
-        element.value = value;
+    else if (element.value !== value) {
+        element.value = value.toString();
     }
     simulateEvent(element, ['click', 'input', 'change']);
 };
