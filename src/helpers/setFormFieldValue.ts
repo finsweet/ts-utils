@@ -25,7 +25,9 @@ export const setFormFieldValue = (element: FormField, value: string | boolean): 
     }
 
     element.checked = value;
-  } else if (element.value !== value) {
+  } else {
+    if (element.value === value) return;
+
     element.value = value.toString();
   }
 

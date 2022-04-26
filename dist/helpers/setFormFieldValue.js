@@ -12,7 +12,9 @@ export const setFormFieldValue = (element, value) => {
         }
         element.checked = value;
     }
-    else if (element.value !== value) {
+    else {
+        if (element.value === value)
+            return;
         element.value = value.toString();
     }
     simulateEvent(element, ['click', 'input', 'change']);
