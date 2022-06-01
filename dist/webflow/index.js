@@ -1,4 +1,5 @@
 export * from './breakpoints';
+export { closeDropdown } from './closeDropdown';
 export * from './css';
 export { getCollectionElements } from './getCollectionElements';
 export { getCollectionListWrappers } from './getCollectionListWrappers';
