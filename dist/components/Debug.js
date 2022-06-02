@@ -1,3 +1,4 @@
+// Constants
 const alertTypes = ['info', 'error'];
 export class Debug {
     static alertsActivated = false;

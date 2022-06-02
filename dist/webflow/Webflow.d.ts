@@ -1,3 +1,6 @@
+/**
+ * Callback type for the Webflow.push() method.
+ */
 declare type Callback = () => unknown;
 export declare type WebflowModule = 'ix2' | 'commerce' | 'lottie' | 'lightbox' | 'slider' | 'tabs';
 interface WebflowCommerce {
@@ -54,12 +57,18 @@ interface WebflowIx2 {
         };
     };
 }
+/**
+ * Includes methods of the Webflow.js object
+ */
 export interface Webflow extends Pick<Callback[], 'push'> {
     destroy: () => void;
     ready: () => void;
     env: () => boolean;
     require: <Key extends WebflowModule>(key: Key) => (Key extends 'commerce' ? WebflowCommerce : Key extends 'lightbox' ? WebflowLightbox : Key extends 'slider' ? WebflowSlider : Key extends 'tabs' ? WebflowTabs : WebflowIx2) | undefined;
 }
+/**
+ * Declare it globally
+ */
 declare global {
     interface Window {
         Webflow?: Webflow | Callback[];

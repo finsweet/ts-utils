@@ -3,6 +3,10 @@ import { fadeIn, fadeOut } from '../animations/fade';
 import { isVisible } from '../helpers/isVisible';
 import { queryElement } from '../helpers';
 import { Debug } from '.';
+/**
+ * Controls showing/hiding an element.
+ * Works with Webflow interactions, built-in fade animations or no animations at all.
+ */
 export class DisplayController {
     interaction;
     noTransition;
@@ -11,6 +15,7 @@ export class DisplayController {
     element;
     static displayProperties = ['block', 'flex', 'grid', 'inline-block', 'inline'];
     constructor({ element, interaction, displayProperty, noTransition, startsHidden }) {
+        // Store properties
         this.element =
             typeof element === 'string'
                 ? queryElement(element, HTMLElement) ||
@@ -18,6 +23,7 @@ export class DisplayController {
                 : element;
         this.noTransition = noTransition;
         this.displayProperty = displayProperty || 'block';
+        // Visibility check
         if (startsHidden) {
             this.element.style.display = 'none';
             this.visible = false;
@@ -29,7 +35,14 @@ export class DisplayController {
             this.interaction = new Interaction({ element, duration });
         }
     }
+    /**
+     * @returns If the element is visible
+     */
     isVisible = () => this.visible;
+    /**
+     * Displays the element
+     * @returns An awaitable promise
+     */
     async show() {
         if (this.visible)
             return;
@@ -41,6 +54,10 @@ export class DisplayController {
             await fadeIn(this.element, this.displayProperty);
         this.visible = true;
     }
+    /**
+     * Hides the element
+     * @returns An awaitable promise
+     */
     async hide() {
         if (!this.visible)
             return;

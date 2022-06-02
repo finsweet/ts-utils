@@ -1,3 +1,7 @@
+/**
+ * Extracts the publish date of a Webflow site
+ * @returns A Date object, if found
+ */
 export const getPublishDate = () => {
     const publishDatePrefix = 'Last Published:';
     for (const node of document.childNodes) {

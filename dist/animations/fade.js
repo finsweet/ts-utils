@@ -1,3 +1,9 @@
+/**
+ * Fade in an element
+ * @param element
+ * @param display Display property, flex by default
+ * @returns An awaitable promise
+ */
 export const fadeIn = (element, display = 'flex') => {
     return new Promise((resolve) => {
         element.style.opacity = '0';
@@ -14,6 +20,11 @@ export const fadeIn = (element, display = 'flex') => {
         })();
     });
 };
+/**
+ * Fade out an element
+ * @param element
+ * @returns An awaitable promise
+ */
 export const fadeOut = (element) => {
     return new Promise((resolve) => {
         element.style.opacity = '1';

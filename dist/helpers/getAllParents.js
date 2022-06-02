@@ -1,3 +1,7 @@
+/**
+ * Returns a list of all parents of an element, excepting the `<body>` and `<html>` tags.
+ * @param element
+ */
 export const getAllParents = (element) => {
     const parents = [];
     const storeParents = ({ parentElement }) => {

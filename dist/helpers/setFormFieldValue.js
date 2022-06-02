@@ -1,4 +1,10 @@
 import { simulateEvent } from '.';
+/**
+ * Sets a value to a FormField element and emits `click`, `input` and `change` Events.
+ *
+ * @param element The FormField to update.
+ * @param value `boolean` for Checkboxes and Radios, `string` for the rest.
+ */
 export const setFormFieldValue = (element, value) => {
     const { type } = element;
     const isRadio = type === 'radio';
@@ -17,5 +23,6 @@ export const setFormFieldValue = (element, value) => {
             return;
         element.value = value.toString();
     }
+    // Emit DOM events
     simulateEvent(element, ['click', 'input', 'change']);
 };
