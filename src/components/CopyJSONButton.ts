@@ -48,7 +48,7 @@ export class CopyJSONButton {
   private init() {
     const { element, hiddenTrigger } = this;
 
-    element.addEventListener('click', () => this.handleClick());
+    element.addEventListener('click', (e) => this.handleClick(e));
 
     hiddenTrigger.addEventListener('copy', (e) => this.handleCopy(e));
   }
@@ -81,7 +81,9 @@ export class CopyJSONButton {
   /**
    * Handles click events: triggers a copy command on the element.
    */
-  private handleClick() {
+  private handleClick(e: MouseEvent) {
+    e.preventDefault();
+
     this.hiddenTrigger.focus();
     document.execCommand('copy');
   }
