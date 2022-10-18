@@ -1,3 +1,4 @@
+export { addListener } from './addListener';
 export { clearFormField } from './clearFormField';
 export { cloneNode } from './cloneNode';
 export { extractCommaSeparatedValues } from './extractCommaSeparatedValues';
