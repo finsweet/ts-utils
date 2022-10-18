@@ -1,2 +1,0 @@
-// ENDPOINT RESPONSES
-export {};
