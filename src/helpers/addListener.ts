@@ -2,21 +2,31 @@
  * Adds an event listener to an element.
  * @returns A callback to remove the event listener from the element.
  *
- * @param element
+ * @param target
  * @param type
  * @param listener
  * @param options
  */
 export function addListener<
-  ElementInterface extends Element,
-  Type extends ElementInterface extends HTMLElement ? keyof HTMLElementEventMap : keyof ElementEventMap | string,
-  Listener extends Type extends keyof HTMLElementEventMap
+  TargetInterface extends EventTarget,
+  Type extends TargetInterface extends Window
+    ? keyof WindowEventMap | string
+    : TargetInterface extends Document
+    ? keyof DocumentEventMap | string
+    : TargetInterface extends HTMLElement
+    ? keyof HTMLElementEventMap | string
+    : keyof ElementEventMap | string,
+  Listener extends Type extends keyof WindowEventMap
+    ? (this: Document, ev: WindowEventMap[Type]) => unknown
+    : Type extends keyof DocumentEventMap
+    ? (this: Document, ev: DocumentEventMap[Type]) => unknown
+    : Type extends keyof HTMLElementEventMap
     ? (this: HTMLElement, ev: HTMLElementEventMap[Type]) => unknown
     : Type extends keyof ElementEventMap
     ? (this: Element, ev: ElementEventMap[Type]) => unknown
     : EventListenerOrEventListenerObject
->(element: ElementInterface, type: Type, listener: Listener, options?: boolean | AddEventListenerOptions): () => void {
-  element.addEventListener(type, listener, options);
+>(target: TargetInterface, type: Type, listener: Listener, options?: boolean | AddEventListenerOptions): () => void {
+  target.addEventListener(type, listener, options);
 
-  return () => element.removeEventListener(type, listener, options);
+  return () => target.removeEventListener(type, listener, options);
 }
