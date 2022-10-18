@@ -12,6 +12,7 @@ export { getObjectEntries } from './getObjectEntries';
 export { getObjectKeys } from './getObjectKeys';
 export { isScrollable } from './isScrollable';
 export { isVisible } from './isVisible';
+export { noop } from './noop';
 export { queryElement } from './queryElement';
 export { removeChildElements } from './removeChildElements';
 export { removeSpaces } from './removeSpaces';

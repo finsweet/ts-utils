@@ -1,3 +1,5 @@
+import { noop } from './noop';
+
 /**
  * Adds an event listener to an element.
  * @returns A callback to remove the event listener from the element.
@@ -25,7 +27,14 @@ export function addListener<
     : Type extends keyof ElementEventMap
     ? (this: Element, ev: ElementEventMap[Type]) => unknown
     : EventListenerOrEventListenerObject
->(target: TargetInterface, type: Type, listener: Listener, options?: boolean | AddEventListenerOptions): () => void {
+>(
+  target: TargetInterface | null | undefined,
+  type: Type,
+  listener: Listener,
+  options?: boolean | AddEventListenerOptions
+): () => void {
+  if (!target) return noop;
+
   target.addEventListener(type, listener, options);
 
   return () => target.removeEventListener(type, listener, options);
