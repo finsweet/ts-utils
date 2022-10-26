@@ -1,5 +1,11 @@
 # @finsweet/ts-utils
 
+## 0.36.0
+
+### Minor Changes
+
+- 0024923: Added primitive type guards
+
 ## 0.35.0
 
 ### Minor Changes
