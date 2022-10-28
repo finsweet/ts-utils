@@ -1,6 +1,7 @@
 import { simulateEvent } from '.';
 
 import type { FormField } from '..';
+import { isHTMLInputElement } from '..';
 
 /**
  * Sets a value to a FormField element and emits `click`, `input` and `change` Events.
@@ -16,7 +17,7 @@ export const setFormFieldValue = (element: FormField, value: string | boolean): 
 
   if (isRadio || isCheckbox) {
     if (
-      !(element instanceof HTMLInputElement) ||
+      !isHTMLInputElement(element) ||
       typeof value !== 'boolean' ||
       value === element.checked ||
       (isRadio && value === false)

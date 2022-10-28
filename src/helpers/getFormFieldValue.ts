@@ -1,3 +1,4 @@
+import { isHTMLInputElement } from '../type-guards';
 import type { FormField } from '../types/FormField';
 
 /**
@@ -14,7 +15,7 @@ export const getFormFieldValue = (input: FormField): string => {
     const checkedOption = input.closest('form')?.querySelector(`input[name="${input.name}"]:checked`);
 
     // If exists, set its value
-    value = checkedOption instanceof HTMLInputElement ? checkedOption.value : '';
+    value = isHTMLInputElement(checkedOption) ? checkedOption.value : '';
   }
 
   return value.toString();
