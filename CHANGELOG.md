@@ -1,5 +1,11 @@
 # @finsweet/ts-utils
 
+## 0.37.1
+
+### Patch Changes
+
+- 3a9fb7e: Added more instances type-guards
+
 ## 0.37.0
 
 ### Minor Changes
