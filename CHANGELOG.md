@@ -1,5 +1,11 @@
 # @finsweet/ts-utils
 
+## 0.37.0
+
+### Minor Changes
+
+- a57b300: Created new typeguards/instances utils
+
 ## 0.36.0
 
 ### Minor Changes
