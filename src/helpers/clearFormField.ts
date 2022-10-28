@@ -2,6 +2,7 @@ import { FORM_CSS_CLASSES } from '../webflow/css';
 import { simulateEvent } from './simulateEvent';
 
 import type { FormField } from '../types';
+import { isHTMLInputElement } from '../type-guards';
 
 const {
   radioInput: radioInputCSSClass,
@@ -19,7 +20,7 @@ const {
 export const clearFormField = (field: FormField, omitEvents: Parameters<typeof simulateEvent>['1'] = []): void => {
   const { type } = field;
 
-  if (field instanceof HTMLInputElement && ['checkbox', 'radio'].includes(type)) {
+  if (isHTMLInputElement(field) && ['checkbox', 'radio'].includes(type)) {
     if (!field.checked) return;
 
     // Reset the field's value
