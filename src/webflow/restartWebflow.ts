@@ -1,4 +1,4 @@
-import { getSiteId } from '.';
+import { getSiteId, SLIDER_CSS_CLASSES } from '.';
 
 import type { WebflowModule } from './Webflow';
 
@@ -53,7 +53,26 @@ export const restartWebflow = async (modules?: WebflowModule[]): Promise<unknown
   if (modules?.includes('lightbox')) Webflow.require('lightbox')?.ready();
 
   // Slider
-  if (modules?.includes('slider')) Webflow.require('slider')?.redraw();
+  if (modules?.includes('slider')) {
+    const slider = Webflow.require('slider');
+
+    // identify an element to observe
+    const sliderToObserve = document.querySelector(SLIDER_CSS_CLASSES.slider);
+
+    if (sliderToObserve) {
+      const observer = new MutationObserver(() => {
+        if (slider) {
+          slider.ready();
+        }
+        observer.disconnect();
+      });
+      observer.observe(sliderToObserve, { attributeOldValue: true });
+    }
+
+    if (slider) {
+      slider.redraw();
+    }
+  }
 
   // Tabs
   if (modules?.includes('tabs')) Webflow.require('tabs')?.redraw();
