@@ -53,7 +53,14 @@ export const restartWebflow = async (modules?: WebflowModule[]): Promise<unknown
   if (modules?.includes('lightbox')) Webflow.require('lightbox')?.ready();
 
   // Slider
-  if (modules?.includes('slider')) Webflow.require('slider')?.redraw();
+  if (modules?.includes('slider')) {
+    const slider = Webflow.require('slider');
+
+    if (slider) {
+      slider.redraw();
+      slider.ready();
+    }
+  }
 
   // Tabs
   if (modules?.includes('tabs')) Webflow.require('tabs')?.redraw();
