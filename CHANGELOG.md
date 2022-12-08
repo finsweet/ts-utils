@@ -1,5 +1,11 @@
 # @finsweet/ts-utils
 
+## 0.37.2
+
+### Patch Changes
+
+- d4b3fae: `restartWebflow`: Fixed slider modules restart to ensure they are always redrawed.
+
 ## 0.37.1
 
 ### Patch Changes
