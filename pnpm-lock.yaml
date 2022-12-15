@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@changesets/changelog-git': ^0.1.13
   '@changesets/cli': ^2.25.0
-  '@finsweet/eslint-config': ^1.1.5
+  '@finsweet/eslint-config': ^2.0.0
   '@trivago/prettier-plugin-sort-imports': ^4.0.0
   '@typescript-eslint/eslint-plugin': ^5.40.1
   '@typescript-eslint/parser': ^5.40.1
@@ -16,7 +16,7 @@ specifiers:
 devDependencies:
   '@changesets/changelog-git': 0.1.13
   '@changesets/cli': 2.25.0
-  '@finsweet/eslint-config': 1.1.5_rzhhkabrluhdzyesbuurigqf3u
+  '@finsweet/eslint-config': 2.0.0_rzhhkabrluhdzyesbuurigqf3u
   '@trivago/prettier-plugin-sort-imports': 4.0.0_prettier@2.7.1
   '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
   '@typescript-eslint/parser': 5.40.1_z4bbprzjrhnsfa24uvmcbu7f5q
@@ -479,16 +479,17 @@ packages:
       - supports-color
     dev: true
 
-  /@finsweet/eslint-config/1.1.5_rzhhkabrluhdzyesbuurigqf3u:
-    resolution: {integrity: sha512-ukW0qLMhup26nCjLwLKv+b6p4OjJ682zxUkCcqwzTvz1OoVqOphFOdFlnfcFUbZDQhPyv5N8LN5U+vwP6ejvow==}
+  /@finsweet/eslint-config/2.0.0_rzhhkabrluhdzyesbuurigqf3u:
+    resolution: {integrity: sha512-8zy0E+3nOvdy0v6PSum3uWscWrhQJHp+jlA13wm9S3xhT39TzDKENVmxBZdB3OiY+myg+HSdPTL/XkUUP8KI6A==}
     peerDependencies:
-      '@typescript-eslint/eslint-plugin': ^5.27.0
-      '@typescript-eslint/parser': ^5.27.0
-      eslint: ^8.16.0
+      '@typescript-eslint/eslint-plugin': ^5.46.1
+      '@typescript-eslint/parser': ^5.46.1
+      eslint: ^8.29.0
       eslint-config-prettier: ^8.5.0
-      eslint-plugin-prettier: ^4.0.0
-      prettier: ^2.6.2
-      typescript: ^4.7.2
+      eslint-plugin-prettier: ^4.2.1
+      eslint-plugin-simple-import-sort: ^8.0.0
+      prettier: ^2.8.1
+      typescript: ^4.9.4
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
       '@typescript-eslint/parser': 5.40.1_z4bbprzjrhnsfa24uvmcbu7f5q
