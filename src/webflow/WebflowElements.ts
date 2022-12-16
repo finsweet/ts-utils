@@ -31,7 +31,7 @@ export type SliderDotElement = HTMLDivElement;
  */
 export type TabsElement = HTMLDivElement;
 export type TabsMenuElement = HTMLDivElement;
-export type TabLinkElement = HTMLDivElement;
+export type TabLinkElement = HTMLLinkElement;
 export type TabsContentElement = HTMLDivElement;
 export type TabPaneElement = HTMLDivElement;
 
