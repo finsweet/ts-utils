@@ -251,7 +251,7 @@ Output:
 medium
 ```
 
-#### `getPublishDate()`
+## getPublishDate()
 Extracts the publish date of a Webflow site.
 
 Example:
