@@ -42,14 +42,14 @@ All utils are fully tree shakeable and strongly typed.
  #### Webflow
 
 - [WEBFLOW_BREAKPOINTS](#WEBFLOW_BREAKPOINTS)
-- [closeDropdown()](#closeDropdown())
+- [closeDropdown()](#closeDropdown)
 - [Css](#Css)
-- [getCollectionElements()](#getCollectionElements())
-- [getCollectionListWrappers()](#getCollectionListWrappers())
-- [getCurrentBreakpoint()](#getCurrentBreakpoint())
-- [getPublishDate()](#getPublishDate())
-- [getSiteId()](#getSiteId())
-- [restartWebflow()](#restartWebflow())
+- [getCollectionElements()](#getCollectionElements)
+- [getCollectionListWrappers()](#getCollectionListWrappers)
+- [getCurrentBreakpoint()](#getCurrentBreakpoint)
+- [getPublishDate()](#getPublishDate)
+- [getSiteId()](#getSiteId)
+- [restartWebflow()](#restartWebflow)
   
   
 
@@ -251,7 +251,7 @@ Output:
 medium
 ```
 
-## getPublishDate()
+#### getPublishDate()
 Extracts the publish date of a Webflow site.
 
 Example:
