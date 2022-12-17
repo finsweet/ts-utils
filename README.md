@@ -50,7 +50,9 @@ All utils are fully tree shakeable and strongly typed.
 - [getPublishDate()](#getPublishDate)
 - [getSiteId()](#getSiteId)
 - [restartWebflow()](#restartWebflow)
-  
+
+#### Components
+- [CopyJSONButton](#CopyJSONButton)
   
 
 #### `Breakpoints`
@@ -58,7 +60,7 @@ All utils are fully tree shakeable and strongly typed.
 
 List of default media queries that are already defined: 
 
-| key (string) | value (string) |
+| key (`string`) | value (`string`) |
 | ------ | ------ |
 | tiny | (max-width: 479px) |
 | small | (max-width: 767px) |
@@ -88,8 +90,8 @@ const breakpointMedium = WEBFLOW_BREAKPOINTS.get('medium');
 
 | param | value |
 | ------ | ------ |
-| dropdownToggle: HTMLDivElement | Dropdown element |
-| focusToggle?: Boolean | Focus dropdown |
+| dropdownToggle: `HTMLDivElement` | Dropdown element |
+| focusToggle?: `Boolean` | Focus dropdown |
 
 Example:
 ```ts
@@ -143,9 +145,9 @@ This util helps with selecting different elements inside `Collection List Wrappe
 
 | param | value |
 | ------ | ------ |
-| reference: string or Element | The element or selector of the element |
-| target: string | The requested element/elements |
-| page: Document | The page document |
+| reference: `string | Element` | The element or selector of the element |
+| target: `string` | The requested element/elements |
+| page: `Document` | The page document |
 
 Available targets: 
 | Targets |
@@ -158,6 +160,10 @@ Available targets:
 | `next` |
 | `previous` |
 | `pageCount` |
+
+| Return value: `CollectionListWrapperElement | CollectionListElement | PaginationButtonElement | PageCountElement |  CollectionItemElement[] | CollectionEmptyElement | null | undefined` |
+| ------ | 
+| The specified collection element/elements. |
 
 Example:
 ```ts
@@ -196,8 +202,12 @@ This util queries `Collection List Wrapper` elements and makes sure they are uni
 
 | param | value |
 | ------ | ------ |
-| selectors: Array of strings | The selectors used for the query. If an empty array is provided, all `Collection List Wrapper` elements will be returned |
-| page: Document | The document where to perform the query |
+| selectors: `string[]` | The selectors used for the query. If an empty array is provided, all `Collection List Wrapper` elements will be returned |
+| page: `Document` | The document where to perform the query |
+
+| Return value: `CollectionListWrapperElement[]` |
+| ------ | 
+| A unique list of `Collection List Wrapper` elements. |
 
 Example:
 ```ts
@@ -235,6 +245,10 @@ Checks the current breakpoint based on the window media.
 
 Please refer to [WEBFLOW_BREAKPOINTS](#WEBFLOW_BREAKPOINTS) for the defined breakpoints reference table.
 
+| Return value: `String` |
+| ------ | 
+| Breakpoint key matching media query value |
+
 Example:
 ```ts
 import { getCurrentBreakpoint } from '@finsweet/ts-utils';
@@ -254,6 +268,10 @@ medium
 #### `getPublishDate()`
 Extracts the publish date of a Webflow site.
 
+| Return value: `String` |
+| ------ | 
+| Date object |
+
 Example:
 ```ts
 import { getPublishDate } from '@finsweet/ts-utils';
@@ -272,6 +290,10 @@ Fri Dec 16 2022 11:48:06 GMT+0530 (India Standard Time)
 
 #### `getSiteId()`
 Extracts the Webflow Site ID of the website
+
+| Return value: `String` |
+| ------ | 
+| The id of the site |
 
 Example:
 ```ts
@@ -294,9 +316,9 @@ Restarts the Webflow JS library.
 
 | param | value |
 | ------ | ------ |
-| modules?: Array of available module strings | If passed, only those modules will be restarted instead of the whole `Webflow` instance |
+| modules?: `WebflowModule[]` | If passed, only those modules will be restarted instead of the whole `Webflow` instance |
 
-| `Available modules` |
+| Available modules |
 | ------ | 
 | `ix2` |
 | `commerce` |
@@ -323,6 +345,59 @@ window.Webflow.push(async () => {
 });
 ```
 
+#### `CopyJSONButton`
+This util is used to copy the data of a Webflow component which can then be pasted into Webflow designer directly.
+
+| param | value |
+| ------ | ------ |
+| element: `HTMLElement` | The element to trigger the copy |
+| copyData: `Record<string, unknown>` | The JSON data of the element that needs to be copied |
+| successText?: `string` | Text to showcase on successful copy |
+| errorText?: `string` | Text to shocase when an error occurs while copying |
+| successCSSClass?: `string` | Class to be added on the element on successful copy. |
+
+> How to get `copyData`?
+> 1. Open your webflow designer
+> 2. Paste this code in your dev tools console
+> ```js
+> document.addEventListener('copy', ({ clipboardData }) => {
+>  const webflowData = clipboardData.getData('application/json');
+>
+>  const type = 'text/plain';
+>  const blob = new Blob([webflowData], { type });
+>  const data = [
+>    new ClipboardItem({
+>      [type]: blob,
+>    }),
+>  ];
+>
+>  navigator.clipboard.write(data);
+>  console.log(webflowData);
+> });
+> ```
+> 3. Now, select/click/focus on the Webflow component that you wish to copy the JSON data of.
+> 4. Press `CTRL+C` or `CMD+C` 
+> 5. Check the console logs in the dev tools and copy the JSON data from there to further use it in  your code as per your prefernece. 
+
+Example: 
+
+```ts
+import { CopyJSONButton } from '@finsweet/ts-utils';
+
+// The JSON data of the element to be copied
+import copyData from './webflow-component.json';
+
+window.Webflow ||= [];
+window.Webflow.push(() => {
+  // The element to trigger the copy on click
+  const element = document.querySelector<HTMLAnchorElement>('#fs-trigger');
+  if (!element) return;
+
+  // Initializing the method
+  new CopyJSONButton({ element, copyData, successText: 'Copied! Paste in Webflow' });
+});
+
+```
 
 ### Contribute
 PRs are welcomed to this project. If you wish to improve the Finsweet Typescript Utils library, add functionality or improve the docs please feel free to submit a PR.
