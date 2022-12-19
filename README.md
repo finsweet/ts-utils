@@ -58,9 +58,9 @@ All utils are fully tree shakeable and strongly typed.
 
 #### Type-gaurds
 - [Instances](#Instances)
-- [isKeyOf](#isKeyOf)
-- [isFormField](#isFormField)
-- [isNotEmpty](#isNotEmpty)
+- [isKeyOf()](#isKeyOf)
+- [isFormField()](#isFormField)
+- [isNotEmpty()](#isNotEmpty)
 
 #### `Breakpoints`
 `WEBFLOW_BREAKPOINTS` is a Map that defines the default media queries for Webflow's breakpoints.
