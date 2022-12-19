@@ -152,7 +152,7 @@ This util helps with selecting different elements inside `Collection List Wrappe
 
 | param | value |
 | ------ | ------ |
-| reference: `string | Element` | The element or selector of the element |
+| reference: `string / Element` | The element or selector of the element |
 | target: `string` | The requested element/elements |
 | page: `Document` | The page document |
 
@@ -168,7 +168,7 @@ Available targets:
 | `previous` |
 | `pageCount` |
 
-| Return value: `CollectionListWrapperElement | CollectionListElement | PaginationButtonElement | PageCountElement |  CollectionItemElement[] | CollectionEmptyElement | null | undefined` |
+| Return value: `CollectionListWrapperElement / CollectionListElement / PaginationButtonElement / PageCountElement /  CollectionItemElement[] / CollectionEmptyElement / null / undefined` |
 | ------ | 
 | The specified collection element/elements. |
 
@@ -204,7 +204,7 @@ Output:
 (4) [div.w-dyn-item, div.w-dyn-item, div.w-dyn-item, div.w-dyn-item]
 ```
 
-#### `CollectionListWrappers()`
+#### `getCollectionListWrappers()`
 This util queries `Collection List Wrapper` elements and makes sure they are unique.
 
 | param | value |
@@ -426,8 +426,8 @@ This util acts as a controller for elements that have a Webflow Ix2 click intera
 
 | param | value |
 | ------ | ------ |
-| element: `HTMLElement | string` | Webflow element/ selector that has the Mouse Click interaction  |
-| duration?: `Number | Partial<Interaction['duration']>` | Optionally, the duration can be explicitly set so the trigger methods will return an awaitable Promise.  |
+| element: `HTMLElement / string` | Webflow element/ selector that has the Mouse Click interaction  |
+| duration?: `Number / Partial<Interaction['duration']>` | Optionally, the duration can be explicitly set so the trigger methods will return an awaitable Promise.  |
 
 ##### Available methods:
 - `isActive()`: 
@@ -592,7 +592,7 @@ Checks if an element is a form field element
 
 | param | value |
 | ------ | ------ |
-| element: `Element | EventTarget | null` | element |
+| element: `Element / EventTarget / null` | element |
 
 | Return value: `Boolean` |
 | ------ | 
@@ -602,7 +602,7 @@ This util makes sure there are no `null` or `undefined` in the passed value. Use
 
 | param | value |
 | ------ | ------ |
-| value: `T` | null | undefined` | value to check |
+| value: `T / null / undefined` | value to check |
 
 | Return value: `Boolean` |
 | ------ | 
