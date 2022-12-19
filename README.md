@@ -482,7 +482,7 @@ This util helps to show/hide an element using built-in fade animations or no ani
 
 | param | value |
 | ------ | ------ |
-| element: `HTMLElement | string` | The main element  |
+| element: `HTMLElement / string` | The main element  |
 | interaction?: `InteractionParams` | If the display must be controlled through a Webflow interaction  |
 | displayProperty?: `typeof DisplayController['displayProperties'][number];` | The display property of the element when displayed. Not applicable when interaction parameters ara passed to the instance, as it's assumed that the Webflow interaction will set the display property. Defaults to `block`. |
 | noTransition?: `boolean` | If set to true, the element will be straight showed / hidden without any transition.  |
