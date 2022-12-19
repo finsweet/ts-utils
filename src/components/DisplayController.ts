@@ -13,7 +13,7 @@ export interface DisplayControllerParams {
   element: HTMLElement | string;
 
   /**
-   * If the display must be controlled thorugh a Webflow interaction.
+   * If the display must be controlled through a Webflow interaction.
    */
   interaction?: InteractionParams;
 
