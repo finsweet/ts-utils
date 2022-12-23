@@ -61,6 +61,18 @@ All utils are fully tree shakeable and strongly typed.
 - [isKeyOf()](#isKeyOf)
 - [isFormField()](#isFormField)
 - [isNotEmpty()](#isNotEmpty)
+- [Primitives](#Primitives)
+
+#### Types
+- [FormField](#FormField)
+- [MapEntries](#MapEntries)
+- [PartialExcept](#PartialExcept)
+- [PickPartial](#PickPartial)
+- [PickRequired](#PickRequired)
+- [RequiredExcept](#RequiredExcept)
+- [UnionToIntersection](#UnionToIntersection)
+
+
 
 #### `Breakpoints`
 `WEBFLOW_BREAKPOINTS` is a Map that defines the default media queries for Webflow's breakpoints.
@@ -547,7 +559,7 @@ window.Webflow.push(async () => {
 ```
 
 #### `Instances`
-Type-gaurd for elements.
+Type-gaurd methods for elements.
 
 | method | param | value | 
 | ------ | ------ | ------ |
@@ -617,6 +629,101 @@ const filteredItemsError: number[] = items.filter((item) => value !== undefined 
 const filteredItemsSuccess: number[] = items.filter(isNotEmpty); // Success!
 ```
 
+#### `Primitives`
+Type-gaurd methods for primitives
+
+| method | param | value | 
+| ------ | ------ | ------ |
+| `isString()` | value: `unknown`  | type of value is a string |
+| `isNumber()` | value: `unknown`  | type of value is a number |
+| `isBigint()` | value: `unknown`  | type of value is a bigint |
+| `isBoolean()` | value: `unknown`  | type of value is a boolean |
+| `isSymbol()` | value: `unknown`  | type of value is a symbol |
+| `isUndefined()` | value: `unknown`  | type of value is undefined |
+| `isNull()` | value: `unknown`  | type of value is null |
+| `isFunction()` | value: `unknown`  | type of value is a function |
+| `isObject()` | value: `unknown`  | type of value is an object |
+
+| Return value: `Boolean` |
+| ------ | 
+
+#### `FormField`
+`FormField` is the Form Field element on Webflow
+
+#### `MapEntries`
+`MapEntries<MapToConvert>` converts a `Map<K, V>` type to its equivalent when performing `[...map.entries()]`.
+
+Example: 
+```typescript
+const map: MapType = new Map(['key', 'value']);
+// Same type as MapEntries<MapType>
+const entries = [...map.entries()]; 
+typeof entries === MapEntries<MapType>
+```
+
+#### `PartialExcept`
+Using the `PartialExcept<Original, Keys extends keyof Original>` helper the picked keys will become Required and the rest of the interface will become Partial.
+
+Example: 
+```ts
+type Obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+
+type NewObj = PartialExcept<Obj, "b">;
+// NewObj looks like:
+// { a?: 1, b: 2, c?: 3 }
+```
+
+#### `PickPartial`
+Using the `PickPartial<Original, Keys extends keyof Original>` the picked keys will become Partial and the rest of the interface will stay the same.
+
+Example: 
+```ts
+type Obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+
+type NewObj = PickPartial<Obj, "b">;
+// NewObj looks like:
+// { a: 1, b?: 2, c: 3 }
+```
+
+#### `PickRequired`
+Using the `PickRequired<Original, Keys extends keyof Original>` the picked keys will become required and the rest of the interface will stay the same.
+
+Example: 
+```ts
+type Obj = {
+  a: 1,
+  b?: 2,
+  c?: 3,
+};
+
+type NewObj = PickRequired<Obj, "b">;
+// NewObj looks like:
+// { a: 1, b: 2, c?: 3 }
+```
+
+#### `RequiredExcept`
+Using `RequiredExcept<Original, Keys extends keyof Original>` the picked keys will become Partial and the rest of the interface will become Required.
+
+Example
+```ts
+type Obj = {
+  a?: 1,
+  b?: 2,
+  c?: 3,
+};
+
+type NewObj = RequiredExcept<Obj, "b">;
+// NewObj looks like:
+// { a: 1, b?: 2, c: 3 }
+```
 
 ### Contribute
 PRs are welcomed to this project. If you wish to improve the Finsweet Typescript Utils library, add functionality or improve the docs please feel free to submit a PR.
