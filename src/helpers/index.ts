@@ -1,3 +1,5 @@
+import { extractNumberFromString } from './extractNumberFromString';
+
 export { addListener } from './addListener';
 export { clearFormField } from './clearFormField';
 export { cloneNode } from './cloneNode';
@@ -23,3 +25,4 @@ export { setFormFieldValue } from './setFormFieldValue';
 export { simulateEvent } from './simulateEvent';
 export { throwError } from './throwError';
 export { wait } from './wait';
+export {extractNumberFromString} from './extractNumberFromString';

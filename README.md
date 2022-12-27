@@ -35,7 +35,23 @@ All utils are fully tree shakeable and strongly typed.
 
 [![npm](https://img.shields.io/npm/dt/@finsweet/ts-utils)](https://www.npmjs.com/package/@finsweet/ts-utils) [![npm version](https://badge.fury.io/js/@finsweet%2Fts-utils.svg)](https://badge.fury.io/js/@finsweet%2Fts-utils) [![NPM](https://img.shields.io/npm/l/@finsweet/ts-utils)](https://www.npmjs.com/package/@finsweet/ts-utils) [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-green)](https://github.com/finsweet/ts-utils/pulls) [![dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)](https://github.com/finsweet/ts-utils/blob/master/package.json)
 
-  
+
+### Installation  
+
+#### Npm
+```bash
+npm install @finsweet/ts-utils
+```
+
+#### Yarn
+```bash
+yard add @finsweet/ts-utils
+```
+
+#### Pnpm
+```bash
+pnpm install @finsweet/ts-utils
+```
 
 ### All available methods and features
 
@@ -50,6 +66,8 @@ All utils are fully tree shakeable and strongly typed.
 - [getPublishDate()](#getPublishDate)
 - [getSiteId()](#getSiteId)
 - [restartWebflow()](#restartWebflow)
+- [populateSelectOptions()](#populateSelectOptions)
+- [removeSelectOptions()](#removeSelectOptions)
 
 #### Components
 - [CopyJSONButton](#CopyJSONButton)
@@ -93,11 +111,11 @@ All utils are fully tree shakeable and strongly typed.
 - [removeSpaces()](#removeSpaces)
 - [removeTrailingSlash()](#removeTrailingSlash)
 - [sameValues()](#sameValues)
-- [selectInputElement()](#selectInputElement)
 - [setFormFieldValue()](#setFormFieldValue)
 - [simulateEvent()](#simulateEvent)
 - [throwError()](#throwError)
 - [wait()](#wait)
+- [extractNumberFromString()](#extractNumberFromString)
 
 #### `Breakpoints`
 `WEBFLOW_BREAKPOINTS` is a Map that defines the default media queries for Webflow's breakpoints.
@@ -386,6 +404,64 @@ window.Webflow.push(async () => {
 
   // restarting Webflow interactions to ensure that the interaction on new image element works
   restartWebflow();
+});
+```
+
+#### `populateSelectOptions()`
+This util helps to populate the options for a select element.
+
+| param | value |
+| ------ | ------ |
+| selectElement: `HTMLSelectElement` | The select element to populate. |
+| options: `string[] / (readonly [string, string])[]` | The options to populate. Accepts either a single Array of values, or an Array with [text, value] tuples. |
+
+Example:
+
+```ts
+import { populateSelectOptions } from '@finsweet/ts-utils';
+
+window.Webflow ||= [];
+window.Webflow.push(async () => {
+  // quering select element
+  const selectEl = document.querySelector('#fs-select') as HTMLSelectElement;
+  const selectElWithValue = document.querySelector('#fs-select-value') as HTMLSelectElement;
+  // declaring select options
+  const selectOptions = ['prime', 'pro', 'max'];
+
+  // If we wish to set particular values for the options, then we can declare the options in the following manner
+  const selectOptionsWithValue = [
+    ['prime', '100'],
+    ['pro', '50'],
+    ['max', '25'],
+  ];
+  // using the util to populate the select options
+  populateSelectOptions(selectEl, selectOptions);
+
+  // select options with particular values
+  populateSelectOptions(selectEl, selectOptionsWithValue);
+});
+
+```
+
+#### `removeSelectOptions()`
+This util removes all the options from an HTMLSelectElement.
+
+| param | value |
+| ------ | ------ |
+| selectElement: `HTMLSelectElement` | The select element. |
+| preserveEmpty: `boolean` | If set to true, any option without a value (like a placeholder option) will be preserved. Default is false. |
+
+Example:
+```ts
+import { removeSelectOptions } from '@finsweet/ts-utils';
+
+window.Webflow ||= [];
+window.Webflow.push(async () => {
+  // quering select element
+  const selectEl = document.querySelector('#fs-select') as HTMLSelectElement;
+
+  // using the removeSelectOptions util to remove options from the select element
+  removeSelectOptions(selectEl);
 });
 ```
 
@@ -1106,6 +1182,17 @@ This util returns an awaitable promise for waiting X time.
 | Return value: `Promise<unknown>` |
 | ------ | 
 | Awaitable promise for waiting X time. |
+
+#### `extractNumberFromString()`
+This util converts a string to a number, removing any invalid symbols like `$` or `,`. If the function is not able to extract a valid number from the string, it will return `null`.
+
+| param | value |
+| ------ | ------ |
+| value: `string` | A string number. |
+
+| Return value: `number \ null` |
+| ------ | 
+| The valid number value. |
 
 ### Contribute
 PRs are welcomed to this project. If you wish to improve the Finsweet Typescript Utils library, add functionality or improve the docs please feel free to submit a PR.
