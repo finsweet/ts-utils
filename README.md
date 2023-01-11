@@ -1,61 +1,40 @@
-
-  
-
 <div  align="left">
-
-  
 
 <img src="https://res.cloudinary.com/dfxtzg164/image/upload/v1670266641/logo_full_black_u3khkr.svg">
 
-  
-
 </div>
-
-  
-
-  
 
 # Typescript Utils
 
-  
-
-  
-
 Typescript utils for custom Webflow projects. This project contains different categories of utils that can be used in any project.
-
-  
-
-  
 
 All utils are fully tree shakeable and strongly typed.
 
-  
-
-  
-
 [![npm](https://img.shields.io/npm/dt/@finsweet/ts-utils)](https://www.npmjs.com/package/@finsweet/ts-utils) [![npm version](https://badge.fury.io/js/@finsweet%2Fts-utils.svg)](https://badge.fury.io/js/@finsweet%2Fts-utils) [![NPM](https://img.shields.io/npm/l/@finsweet/ts-utils)](https://www.npmjs.com/package/@finsweet/ts-utils) [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-green)](https://github.com/finsweet/ts-utils/pulls) [![dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)](https://github.com/finsweet/ts-utils/blob/master/package.json)
 
-
-### Installation  
+### Installation
 
 #### Npm
+
 ```bash
 npm install @finsweet/ts-utils
 ```
 
 #### Yarn
+
 ```bash
 yard add @finsweet/ts-utils
 ```
 
 #### Pnpm
+
 ```bash
 pnpm install @finsweet/ts-utils
 ```
 
 ### All available methods and features
 
- #### Webflow
+#### Webflow
 
 - [WEBFLOW_BREAKPOINTS](#WEBFLOW_BREAKPOINTS)
 - [closeDropdown()](#closeDropdown)
@@ -70,11 +49,13 @@ pnpm install @finsweet/ts-utils
 - [removeSelectOptions()](#removeSelectOptions)
 
 #### Components
+
 - [CopyJSONButton](#CopyJSONButton)
 - [Interaction](#Interaction)
 - [DisplayController](#DisplayController)
 
 #### Type-gaurds
+
 - [Instances](#Instances)
 - [isKeyOf()](#isKeyOf)
 - [isFormField()](#isFormField)
@@ -82,6 +63,7 @@ pnpm install @finsweet/ts-utils
 - [Primitives](#Primitives)
 
 #### Types
+
 - [FormField](#FormField)
 - [MapEntries](#MapEntries)
 - [PartialExcept](#PartialExcept)
@@ -91,6 +73,7 @@ pnpm install @finsweet/ts-utils
 - [UnionToIntersection](#UnionToIntersection)
 
 #### Helpers
+
 - [addListener()](#addListener)
 - [clearFormField()](#clearFormField)
 - [cloneNode()](#cloneNode)
@@ -118,18 +101,20 @@ pnpm install @finsweet/ts-utils
 - [extractNumberFromString()](#extractNumberFromString)
 
 #### `Breakpoints`
+
 `WEBFLOW_BREAKPOINTS` is a Map that defines the default media queries for Webflow's breakpoints.
 
-List of default media queries that are already defined: 
+List of default media queries that are already defined:
 
-| key (`string`) | value (`string`) |
-| ------ | ------ |
-| tiny | (max-width: 479px) |
-| small | (max-width: 767px) |
-| medium | (max-width: 991px) |
-| main | (min-width: 992px) |
+| key (`string`) | value (`string`)   |
+| -------------- | ------------------ |
+| tiny           | (max-width: 479px) |
+| small          | (max-width: 767px) |
+| medium         | (max-width: 991px) |
+| main           | (min-width: 992px) |
 
 Example:
+
 ```ts
 import { WEBFLOW_BREAKPOINTS } from '@finsweet/ts-utils';
 
@@ -148,14 +133,16 @@ const breakpointMedium = WEBFLOW_BREAKPOINTS.get('medium');
 ```
 
 #### `CloseDropdown()`
+
 `closeDropdown()` closes a dropdown element
 
-| param | value |
-| ------ | ------ |
+| param                            | value            |
+| -------------------------------- | ---------------- |
 | dropdownToggle: `HTMLDivElement` | Dropdown element |
-| focusToggle?: `Boolean` | Focus dropdown |
+| focusToggle?: `Boolean`          | Focus dropdown   |
 
 Example:
+
 ```ts
 import { closeDropdown } from '@finsweet/ts-utils';
 
@@ -173,12 +160,13 @@ closeDropdownEl.addEventListener('click', () => closeDropdown(dropdownEl));
 ```
 
 #### `Css`
+
 This util contains constants for Webflow css classes linked to the native Webflow elements.
 
 List of available css classes groups
 | constant | reference |
 | ------ | ------ |
-| CURRENT_CSS_CLASS | Current  element(s) |
+| CURRENT_CSS_CLASS | Current element(s) |
 | RICH_TEXT_BLOCK_CSS_CLASS | Richtext element(s) |
 | HTML_EMBED_CSS_CLASS | Embed element(s) |
 | SLIDER_CSS_CLASSES | Slider element(s) |
@@ -191,6 +179,7 @@ List of available css classes groups
 | LIGHTBOX_CSS_CLASSES | Lightbox element(s) |
 
 Example:
+
 ```ts
 import { SLIDER_CSS_CLASSES } from '@finsweet/ts-utils';
 
@@ -203,17 +192,18 @@ const sliderNavEl = document.querySelector(`.${SLIDER_CSS_CLASSES.sliderNav}`);
 ```
 
 #### `getCollectionElements()`
+
 This util helps with selecting different elements inside `Collection List Wrapper` or the `Collection List`
 
-| param | value |
-| ------ | ------ |
+| param                         | value                                  |
+| ----------------------------- | -------------------------------------- |
 | reference: `string / Element` | The element or selector of the element |
-| target: `string` | The requested element/elements |
-| page: `Document` | The page document |
+| target: `string`              | The requested element/elements         |
+| page: `Document`              | The page document                      |
 
-Available targets: 
+Available targets:
 | Targets |
-| ------ | 
+| ------ |
 | `wrapper` |
 | `list` |
 | `items` |
@@ -224,16 +214,16 @@ Available targets:
 | `pageCount` |
 
 | Return value: `CollectionListWrapperElement / CollectionListElement / PaginationButtonElement / PageCountElement /  CollectionItemElement[] / CollectionEmptyElement / null / undefined` |
-| ------ | 
-| The specified collection element/elements. |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The specified collection element/elements.                                                                                                                                               |
 
 Example:
+
 ```ts
 import { getCollectionElements } from '@finsweet/ts-utils';
 
 window.Webflow ||= [];
 window.Webflow.push(async () => {
-
   // source of the page that has the collection
   const pageSource = '/cms';
 
@@ -250,28 +240,32 @@ window.Webflow.push(async () => {
 
   // fetching all the items in the collection wrapper using the getCollectionElements util
   const list = await getCollectionElements(selector, 'items', doc);
-  
+
   console.log(list);
 });
 ```
-Output: 
+
+Output:
+
 ```
 (4) [div.w-dyn-item, div.w-dyn-item, div.w-dyn-item, div.w-dyn-item]
 ```
 
 #### `getCollectionListWrappers()`
+
 This util queries `Collection List Wrapper` elements and makes sure they are unique.
 
-| param | value |
-| ------ | ------ |
+| param                 | value                                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | selectors: `string[]` | The selectors used for the query. If an empty array is provided, all `Collection List Wrapper` elements will be returned |
-| page: `Document` | The document where to perform the query |
+| page: `Document`      | The document where to perform the query                                                                                  |
 
-| Return value: `CollectionListWrapperElement[]` |
-| ------ | 
+| Return value: `CollectionListWrapperElement[]`       |
+| ---------------------------------------------------- |
 | A unique list of `Collection List Wrapper` elements. |
 
 Example:
+
 ```ts
 import { getCollectionListWrappers } from '@finsweet/ts-utils';
 
@@ -293,25 +287,29 @@ window.Webflow.push(async () => {
 
   // fetching a unqiue list of collection wrappers
   const unqiueColWrappers = await getCollectionListWrappers(selectors, doc);
-  
+
   console.log(unqiueColWrappers);
 });
 ```
 
 Output:
+
 ```
 (3) [div#fs-col-wrapper1.w-dyn-list, div#fs-col-wrapper2.w-dyn-list, div#fs-col-wrapper3.w-dyn-list]
 ```
+
 #### `getCurrentBreakpoint()`
+
 Checks the current breakpoint based on the window media.
 
 Please refer to [WEBFLOW_BREAKPOINTS](#WEBFLOW_BREAKPOINTS) for the defined breakpoints reference table.
 
-| Return value: `String` |
-| ------ | 
+| Return value: `String`                    |
+| ----------------------------------------- |
 | Breakpoint key matching media query value |
 
 Example:
+
 ```ts
 import { getCurrentBreakpoint } from '@finsweet/ts-utils';
 
@@ -323,18 +321,21 @@ window.Webflow.push(async () => {
 ```
 
 Output:
+
 ```
 medium
 ```
 
 #### `getPublishDate()`
+
 Extracts the publish date of a Webflow site.
 
 | Return value: `String` |
-| ------ | 
-| Date object |
+| ---------------------- |
+| Date object            |
 
 Example:
+
 ```ts
 import { getPublishDate } from '@finsweet/ts-utils';
 
@@ -346,18 +347,21 @@ window.Webflow.push(async () => {
 ```
 
 Output:
+
 ```
 Fri Dec 16 2022 11:48:06 GMT+0530 (India Standard Time)
 ```
 
 #### `getSiteId()`
+
 Extracts the Webflow Site ID of the website
 
 | Return value: `String` |
-| ------ | 
-| The id of the site |
+| ---------------------- |
+| The id of the site     |
 
 Example:
+
 ```ts
 import { getSiteId } from '@finsweet/ts-utils';
 
@@ -369,27 +373,30 @@ window.Webflow.push(async () => {
 ```
 
 Output:
+
 ```
 5f10844b0e20ffdd9de0fbea
 ```
 
 #### `restartWebflow()`
+
 Restarts the Webflow JS library.
 
-| param | value |
-| ------ | ------ |
+| param                       | value                                                                                   |
+| --------------------------- | --------------------------------------------------------------------------------------- |
 | modules?: `WebflowModule[]` | If passed, only those modules will be restarted instead of the whole `Webflow` instance |
 
 | Available modules |
-| ------ | 
-| `ix2` |
-| `commerce` |
-| `lottie` |
-| `lightbox` |
-| `slider` |
-| `tabs` |
+| ----------------- |
+| `ix2`             |
+| `commerce`        |
+| `lottie`          |
+| `lightbox`        |
+| `slider`          |
+| `tabs`            |
 
 Example:
+
 ```ts
 import { cloneNode, restartWebflow } from '@finsweet/ts-utils';
 
@@ -408,11 +415,12 @@ window.Webflow.push(async () => {
 ```
 
 #### `populateSelectOptions()`
+
 This util helps to populate the options for a select element.
 
-| param | value |
-| ------ | ------ |
-| selectElement: `HTMLSelectElement` | The select element to populate. |
+| param                                               | value                                                                                                    |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| selectElement: `HTMLSelectElement`                  | The select element to populate.                                                                          |
 | options: `string[] / (readonly [string, string])[]` | The options to populate. Accepts either a single Array of values, or an Array with [text, value] tuples. |
 
 Example:
@@ -440,18 +448,19 @@ window.Webflow.push(async () => {
   // select options with particular values
   populateSelectOptions(selectEl, selectOptionsWithValue);
 });
-
 ```
 
 #### `removeSelectOptions()`
+
 This util removes all the options from an HTMLSelectElement.
 
-| param | value |
-| ------ | ------ |
-| selectElement: `HTMLSelectElement` | The select element. |
-| preserveEmpty: `boolean` | If set to true, any option without a value (like a placeholder option) will be preserved. Default is false. |
+| param                              | value                                                                                                       |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| selectElement: `HTMLSelectElement` | The select element.                                                                                         |
+| preserveEmpty: `boolean`           | If set to true, any option without a value (like a placeholder option) will be preserved. Default is false. |
 
 Example:
+
 ```ts
 import { removeSelectOptions } from '@finsweet/ts-utils';
 
@@ -466,55 +475,60 @@ window.Webflow.push(async () => {
 ```
 
 #### `CopyJSONButton`
+
 This util is used to copy the data of a Webflow component which can then be pasted into Webflow designer directly.
 
-| param | value |
-| ------ | ------ |
-| element: `HTMLElement` | The element to trigger the copy |
+| param                               | value                                                |
+| ----------------------------------- | ---------------------------------------------------- |
+| element: `HTMLElement`              | The element to trigger the copy                      |
 | copyData: `Record<string, unknown>` | The JSON data of the element that needs to be copied |
-| successText?: `string` | Text to showcase on successful copy |
-| errorText?: `string` | Text to shocase when an error occurs while copying |
-| successCSSClass?: `string` | Class to be added on the element on successful copy. |
+| successText?: `string`              | Text to showcase on successful copy                  |
+| errorText?: `string`                | Text to shocase when an error occurs while copying   |
+| successCSSClass?: `string`          | Class to be added on the element on successful copy. |
 
 > How to get `copyData`?
+>
 > 1. Open your webflow designer
 > 2. Paste this code in your dev tools console
+>
 > ```js
 > document.addEventListener('copy', ({ clipboardData }) => {
->  const webflowData = clipboardData.getData('application/json');
+>   const webflowData = clipboardData.getData('application/json');
 >
->  const type = 'text/plain';
->  const blob = new Blob([webflowData], { type });
->  const data = [
->    new ClipboardItem({
->      [type]: blob,
->    }),
->  ];
+>   const type = 'text/plain';
+>   const blob = new Blob([webflowData], { type });
+>   const data = [
+>     new ClipboardItem({
+>       [type]: blob,
+>     }),
+>   ];
 >
->  navigator.clipboard.write(data);
->  console.log(webflowData);
+>   navigator.clipboard.write(data);
+>   console.log(webflowData);
 > });
 > ```
+>
 > 3. Now, select/click/focus on the Webflow component that you wish to copy the JSON data of.
-> 4. Press `CTRL+C` or `CMD+C` 
-> 5. Check the console logs in the dev tools and copy the JSON data from there to further use it in  your code as per your prefernece. 
+> 4. Press `CTRL+C` or `CMD+C`
+> 5. Check the console logs in the dev tools and copy the JSON data from there to further use it in your code as per your prefernece.
 
 ##### Available methods:
-- `updateCopyData()`: 
-    Updates the JSON data to be copied.
 
-    | param | value |
-    | ------ | ------ |
-    | newCopyData: `Record<string, unknown>` | The new JSON data of the element to be copied |
-    
+- `updateCopyData()`:
+  Updates the JSON data to be copied.
+
+  | param                                  | value                                         |
+  | -------------------------------------- | --------------------------------------------- |
+  | newCopyData: `Record<string, unknown>` | The new JSON data of the element to be copied |
+
 - `updateTextContent()`:
-    Updates the button's text content.
+  Updates the button's text content.
 
-    | param | value |
-    | ------ | ------ |
-    | newText: `string` | The new text to be displayed |
+  | param             | value                        |
+  | ----------------- | ---------------------------- |
+  | newText: `string` | The new text to be displayed |
 
-Example: 
+Example:
 
 ```ts
 import { CopyJSONButton } from '@finsweet/ts-utils';
@@ -531,34 +545,36 @@ window.Webflow.push(() => {
   // Initializing the method
   new CopyJSONButton({ element, copyData, successText: 'Copied! Paste in Webflow' });
 });
-
 ```
 
 #### `Interaction`
-This util acts as a controller for elements that have a Webflow Ix2 click interaction binded to it. 
 
-| param | value |
-| ------ | ------ |
-| element: `HTMLElement / string` | Webflow element/ selector that has the Mouse Click interaction  |
-| duration?: `Number / Partial<Interaction['duration']>` | Optionally, the duration can be explicitly set so the trigger methods will return an awaitable Promise.  |
+This util acts as a controller for elements that have a Webflow Ix2 click interaction binded to it.
+
+| param                                                  | value                                                                                                   |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| element: `HTMLElement / string`                        | Webflow element/ selector that has the Mouse Click interaction                                          |
+| duration?: `Number / Partial<Interaction['duration']>` | Optionally, the duration can be explicitly set so the trigger methods will return an awaitable Promise. |
 
 ##### Available methods:
-- `isActive()`: 
-    Checks if the interaction is active.
-    | Return value: `Boolean` |
-    | ------ | 
 
-- `isRunning()`: 
-    Checks if the interaction is running.
-    | Return value: `Boolean` |
-    | ------ | 
+- `isActive()`:
+  Checks if the interaction is active.
+  | Return value: `Boolean` |
+  | ------ |
+
+- `isRunning()`:
+  Checks if the interaction is running.
+  | Return value: `Boolean` |
+  | ------ |
 
 - `untilFinished()`:
-    Returns a promise that fulfills when the current running interaction has finished
-    | Return value: `An awaitable Promise` |
-    | ------ | 
+  Returns a promise that fulfills when the current running interaction has finished
+  | Return value: `An awaitable Promise` |
+  | ------ |
 
-Example: 
+Example:
+
 ```ts
 import { Interaction } from '@finsweet/ts-utils';
 
@@ -591,45 +607,47 @@ window.Webflow.push(async () => {
 ```
 
 #### `DisplayController`
+
 This util helps to show/hide an element using built-in fade animations or no animations at all. It also works with Webflow interactions.
 
-| param | value |
-| ------ | ------ |
-| element: `HTMLElement / string` | The main element  |
-| interaction?: `InteractionParams` | If the display must be controlled through a Webflow interaction  |
+| param                                                                      | value                                                                                                                                                                                                                       |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| element: `HTMLElement / string`                                            | The main element                                                                                                                                                                                                            |
+| interaction?: `InteractionParams`                                          | If the display must be controlled through a Webflow interaction                                                                                                                                                             |
 | displayProperty?: `typeof DisplayController['displayProperties'][number];` | The display property of the element when displayed. Not applicable when interaction parameters ara passed to the instance, as it's assumed that the Webflow interaction will set the display property. Defaults to `block`. |
-| noTransition?: `boolean` | If set to true, the element will be straight showed / hidden without any transition.  |
-| startsHidden?: `boolean` | If set to true, the element will be set to `display: none`.  |
+| noTransition?: `boolean`                                                   | If set to true, the element will be straight showed / hidden without any transition.                                                                                                                                        |
+| startsHidden?: `boolean`                                                   | If set to true, the element will be set to `display: none`.                                                                                                                                                                 |
 
 | Available displayProperty options: |
-| ------ | 
-| `block` |
-| `flex` |
-| `grid` |
-| `inline-block` |
-| `inline` |
+| ---------------------------------- |
+| `block`                            |
+| `flex`                             |
+| `grid`                             |
+| `inline-block`                     |
+| `inline`                           |
 
 ##### Available methods:
-- `isVisible()`:
-    Checks if element is visible
 
-    | Return value: `Boolean` |
-    | ------ | 
+- `isVisible()`:
+  Checks if element is visible
+
+  | Return value: `Boolean` |
+  | ----------------------- |
 
 - `show()`
-    Displays the element
+  Displays the element
 
-    | Return value: `An awaitable Promise` |
-    | ------ | 
+  | Return value: `An awaitable Promise` |
+  | ------------------------------------ |
 
 - `hide()`
-    Hides the element
+  Hides the element
 
-    | Return value: `An awaitable Promise` |
-    | ------ | 
-    
-    
-Example: 
+  | Return value: `An awaitable Promise` |
+  | ------------------------------------ |
+
+Example:
+
 ```ts
 import { DisplayController } from '@finsweet/ts-utils';
 
@@ -660,65 +678,70 @@ window.Webflow.push(async () => {
 ```
 
 #### `Instances`
+
 Type-gaurd methods for elements.
 
-| method | param | value | 
-| ------ | ------ | ------ |
-| `isFile()` | target: `unknown`  | target is a File |
-| `isNode()` | target: `unknown`  | target is a Node |
-| `isElement()` | target: `unknown`  | target is an Element |
-| `isHTMLElement()` | target: `unknown`  | target is a HTMLElement |
-| `isHTMLInputElement()` | target: `unknown`  | target is a HTMLInputElement |
-| `isHTMLSelectElement()` | target: `unknown`  | target is a HTMLSelectElement |
-| `isHTMLTextAreaElement()` | target: `unknown`  | target is a HTMLTextAreaElement |
-| `isHTMLVideoElement()` | target: `unknown`  | target is a HTMLVideoElement |
-| `isHTMLAnchorElement()` | target: `unknown`  | target is a HTMLAnchorElement |
-| `isHTMLImageElement()` | target: `unknown`  | target is a HTMLImageElement |
-| `isHTMLOptionElement()` | target: `unknown`  | target is a HTMLOptionElement |
-| `isHTMLButtonElement()` | target: `unknown`  | target is a HTMLButtonElement |
+| method                    | param             | value                           |
+| ------------------------- | ----------------- | ------------------------------- |
+| `isFile()`                | target: `unknown` | target is a File                |
+| `isNode()`                | target: `unknown` | target is a Node                |
+| `isElement()`             | target: `unknown` | target is an Element            |
+| `isHTMLElement()`         | target: `unknown` | target is a HTMLElement         |
+| `isHTMLInputElement()`    | target: `unknown` | target is a HTMLInputElement    |
+| `isHTMLSelectElement()`   | target: `unknown` | target is a HTMLSelectElement   |
+| `isHTMLTextAreaElement()` | target: `unknown` | target is a HTMLTextAreaElement |
+| `isHTMLVideoElement()`    | target: `unknown` | target is a HTMLVideoElement    |
+| `isHTMLAnchorElement()`   | target: `unknown` | target is a HTMLAnchorElement   |
+| `isHTMLImageElement()`    | target: `unknown` | target is a HTMLImageElement    |
+| `isHTMLOptionElement()`   | target: `unknown` | target is a HTMLOptionElement   |
+| `isHTMLButtonElement()`   | target: `unknown` | target is a HTMLButtonElement   |
 
 | Return value: `Boolean` |
-| ------ | 
+| ----------------------- |
 
 #### `isKeyOf()`
+
 Check if a key is included in a readonly array
 
-| param | value |
-| ------ | ------ |
-| key: `string` | The main element  |
-| source: `readonly T[]` | Readonly array of strings  |
+| param                  | value                     |
+| ---------------------- | ------------------------- |
+| key: `string`          | The main element          |
+| source: `readonly T[]` | Readonly array of strings |
 
 | Return value: `Boolean` |
-| ------ | 
+| ----------------------- |
 
 Example
+
 ```ts
-  const keyToCheck = 'hello';
+const keyToCheck = 'hello';
 
-  const arrayToCheck = ['hello', 'how', 'are', 'you'];
+const arrayToCheck = ['hello', 'how', 'are', 'you'];
 
-  const isKeyPresent = isKeyOf(keyToCheck, arrayToCheck); // true
-  ```
+const isKeyPresent = isKeyOf(keyToCheck, arrayToCheck); // true
+```
 
 #### `isFormField()`
+
 Checks if an element is a form field element
 
-| param | value |
-| ------ | ------ |
+| param                                   | value   |
+| --------------------------------------- | ------- |
 | element: `Element / EventTarget / null` | element |
 
 | Return value: `Boolean` |
-| ------ | 
+| ----------------------- |
 
 #### `isNotEmpty()`
+
 This util makes sure there are no `null` or `undefined` in the passed value. Useful for type safety when filtering empty elements from an array.
 
-| param | value |
-| ------ | ------ |
+| param                         | value          |
+| ----------------------------- | -------------- |
 | value: `T / null / undefined` | value to check |
 
 | Return value: `Boolean` |
-| ------ | 
+| ----------------------- |
 
 Example:
 
@@ -731,118 +754,131 @@ const filteredItemsSuccess: number[] = items.filter(isNotEmpty); // Success!
 ```
 
 #### `Primitives`
+
 Type-gaurd methods for primitives
 
-| method | param | value | 
-| ------ | ------ | ------ |
-| `isString()` | value: `unknown`  | type of value is a string |
-| `isNumber()` | value: `unknown`  | type of value is a number |
-| `isBigint()` | value: `unknown`  | type of value is a bigint |
-| `isBoolean()` | value: `unknown`  | type of value is a boolean |
-| `isSymbol()` | value: `unknown`  | type of value is a symbol |
-| `isUndefined()` | value: `unknown`  | type of value is undefined |
-| `isNull()` | value: `unknown`  | type of value is null |
-| `isFunction()` | value: `unknown`  | type of value is a function |
-| `isObject()` | value: `unknown`  | type of value is an object |
+| method          | param            | value                       |
+| --------------- | ---------------- | --------------------------- |
+| `isString()`    | value: `unknown` | type of value is a string   |
+| `isNumber()`    | value: `unknown` | type of value is a number   |
+| `isBigint()`    | value: `unknown` | type of value is a bigint   |
+| `isBoolean()`   | value: `unknown` | type of value is a boolean  |
+| `isSymbol()`    | value: `unknown` | type of value is a symbol   |
+| `isUndefined()` | value: `unknown` | type of value is undefined  |
+| `isNull()`      | value: `unknown` | type of value is null       |
+| `isFunction()`  | value: `unknown` | type of value is a function |
+| `isObject()`    | value: `unknown` | type of value is an object  |
 
 | Return value: `Boolean` |
-| ------ | 
+| ----------------------- |
 
 #### `FormField`
+
 `FormField` is the Form Field element on Webflow
 
 #### `MapEntries`
+
 `MapEntries<MapToConvert>` converts a `Map<K, V>` type to its equivalent when performing `[...map.entries()]`.
 
-Example: 
+Example:
+
 ```typescript
 const map: MapType = new Map(['key', 'value']);
 // Same type as MapEntries<MapType>
-const entries = [...map.entries()]; 
-typeof entries === MapEntries<MapType>
+const entries = [...map.entries()];
+typeof entries === MapEntries<MapType>;
 ```
 
 #### `PartialExcept`
+
 Using the `PartialExcept<Original, Keys extends keyof Original>` helper the picked keys will become Required and the rest of the interface will become Partial.
 
-Example: 
+Example:
+
 ```ts
 type Obj = {
-  a: 1,
-  b: 2,
-  c: 3,
+  a: 1;
+  b: 2;
+  c: 3;
 };
 
-type NewObj = PartialExcept<Obj, "b">;
+type NewObj = PartialExcept<Obj, 'b'>;
 // NewObj looks like:
 // { a?: 1, b: 2, c?: 3 }
 ```
 
 #### `PickPartial`
+
 Using the `PickPartial<Original, Keys extends keyof Original>` the picked keys will become Partial and the rest of the interface will stay the same.
 
-Example: 
+Example:
+
 ```ts
 type Obj = {
-  a: 1,
-  b: 2,
-  c: 3,
+  a: 1;
+  b: 2;
+  c: 3;
 };
 
-type NewObj = PickPartial<Obj, "b">;
+type NewObj = PickPartial<Obj, 'b'>;
 // NewObj looks like:
 // { a: 1, b?: 2, c: 3 }
 ```
 
 #### `PickRequired`
+
 Using the `PickRequired<Original, Keys extends keyof Original>` the picked keys will become required and the rest of the interface will stay the same.
 
-Example: 
+Example:
+
 ```ts
 type Obj = {
-  a: 1,
-  b?: 2,
-  c?: 3,
+  a: 1;
+  b?: 2;
+  c?: 3;
 };
 
-type NewObj = PickRequired<Obj, "b">;
+type NewObj = PickRequired<Obj, 'b'>;
 // NewObj looks like:
 // { a: 1, b: 2, c?: 3 }
 ```
 
 #### `RequiredExcept`
+
 Using `RequiredExcept<Original, Keys extends keyof Original>` the picked keys will become Partial and the rest of the interface will become Required.
 
 Example
+
 ```ts
 type Obj = {
-  a?: 1,
-  b?: 2,
-  c?: 3,
+  a?: 1;
+  b?: 2;
+  c?: 3;
 };
 
-type NewObj = RequiredExcept<Obj, "b">;
+type NewObj = RequiredExcept<Obj, 'b'>;
 // NewObj looks like:
 // { a: 1, b?: 2, c: 3 }
 ```
 
 #### `UnionToIntersection`
+
 `UnionToIntersection<Union>` converts a union like `Interface1 | Interface2` to an intersection `Interface1 & Interface2`.
 
 #### `addListener()`
+
 This util adds an event listener to an element.
 
-| param | value |
-| ------ | ------ |
-| target: `TargetInterface / null / undefined` | Target element |
-| type: `Type` | The name of the event |
-| listener: `Listener` | The function to run when the event occurs |
+| param                                        | value                                                                                                     |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| target: `TargetInterface / null / undefined` | Target element                                                                                            |
+| type: `Type`                                 | The name of the event                                                                                     |
+| listener: `Listener`                         | The function to run when the event occurs                                                                 |
 | options: `boolean / AddEventListenerOptions` | Available options (https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options) |
 
-| Return value: `function` |
-| ------ | 
+| Return value: `function`                                  |
+| --------------------------------------------------------- |
 | A callback to remove the event listener from the element. |
-
 
 Example:
 
@@ -862,23 +898,25 @@ window.Webflow.push(async () => {
 ```
 
 #### `clearFormField()`
+
 This util clears the form field's value and emits an input and changed event. If the field is a checkbox or a radio, it will unselect it.
 
-| param | value |
-| ------ | ------ |
-| field: `FormField` | The `FormField` to clear |
+| param                                       | value                                                                                                                                                                                                            |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| field: `FormField`                          | The `FormField` to clear                                                                                                                                                                                         |
 | omitEvents: `AllowedEvent / AllowedEvent[]` | By default, events are dispatched from the `FormField`. In some cases, these events might collide with other logic of the system. You can omit certain events from being dispatched by passing them in an array. |
 
 | List of `AllowedEvent` |
-| ------ | 
-| `DOMContentLoaded` |
-| `fullscreenchange` |
-| `fullscreenerror` |
-| `pointerlockchange` |
-| `readystatechange` |
-| `visibilitychange` |
+| ---------------------- |
+| `DOMContentLoaded`     |
+| `fullscreenchange`     |
+| `fullscreenerror`      |
+| `pointerlockchange`    |
+| `readystatechange`     |
+| `visibilitychange`     |
 
 Example:
+
 ```ts
 import { clearFormField } from '@finsweet/ts-utils';
 
@@ -892,17 +930,19 @@ window.Webflow.push(async () => {
 ```
 
 #### `cloneNode()`
+
 This util helps you deep clone a node that has the same type as the original one
 
-| param | value |
-| ------ | ------ |
+| param                  | value             |
+| ---------------------- | ----------------- |
 | node: `T extends Node` | The node to clone |
 
 | Return value: `T` |
-| ------ | 
-| The cloned node. |
+| ----------------- |
+| The cloned node.  |
 
 Example
+
 ```ts
 import { cloneNode } from '@finsweet/ts-utils';
 
@@ -917,62 +957,68 @@ window.Webflow.push(async () => {
 ```
 
 #### `extractCommaSeparatedValues()`
+
 This util converts a string of comma separated values to an array of values.
 
-| param | value |
-| ------ | ------ |
-| string: `string` | Comma separated string |
-| compareSource?: `undefined` | Acts as a type guard for making sure the extracted values match the compared source |
-| defaultValue?: `undefined` | Is set when there is no matching results after comparing with the source |
-| filterEmpty?: `undefined` | Defines if empty values should be filtered out of the returned array. Defaults to `true` |
+| param                       | value                                                                                    |
+| --------------------------- | ---------------------------------------------------------------------------------------- |
+| string: `string`            | Comma separated string                                                                   |
+| compareSource?: `undefined` | Acts as a type guard for making sure the extracted values match the compared source      |
+| defaultValue?: `undefined`  | Is set when there is no matching results after comparing with the source                 |
+| filterEmpty?: `undefined`   | Defines if empty values should be filtered out of the returned array. Defaults to `true` |
 
-| Return value: `string[]` |
-| ------ | 
+| Return value: `string[]`                                      |
+| ------------------------------------------------------------- |
 | An array of strings that were originally seperated by a comma |
 
 Example:
+
 ```ts
   const targetString = 'valueone, valuetwo, valuethree';\
-  
+
   const resultString = extractCommaSeparatedValues(targetString);
   // resultString is ["valueone", "valuetwo", "valuethree"]
 ```
 
 #### `extractNumberSuffix()`
+
 This util returns the number value that is suffixed in a string
 
-| param | value |
-| ------ | ------ |
+| param            | value                 |
+| ---------------- | --------------------- |
 | string: `string` | The string to extract |
 
-| Return value: `number / undefined` |
-| ------ | 
+| Return value: `number / undefined`                      |
+| ------------------------------------------------------- |
 | The resulted number extracted from the string, if found |
 
 Example:
+
 ```ts
-  const string = 'click-2';
-  const string2 = 'click';
+const string = 'click-2';
+const string2 = 'click';
 
-  extractNumberSuffix(string);
-  // 2
+extractNumberSuffix(string);
+// 2
 
-  extractNumberSuffix(string2);
-  // undefined
+extractNumberSuffix(string2);
+// undefined
 ```
 
 #### `findTextNode()`
+
 This util finds the first child text node of an element
 
-| param | value |
-| ------ | ------ |
+| param                  | value                      |
+| ---------------------- | -------------------------- |
 | element: `HTMLElement` | The element to search into |
 
-| Return value: `ChildNode | undefined` |
-| ------ | 
+| Return value: `ChildNode                    | undefined` |
+| ------------------------------------------- | ---------- |
 | The first child node text element, if found |
 
 Example:
+
 ```ts
 import { findTextNode } from '@finsweet/ts-utils';
 
@@ -980,133 +1026,146 @@ window.Webflow ||= [];
 window.Webflow.push(async () => {
   const parentElement = document.querySelector('#fs-parent') as HTMLElement;
 
-// The node of the first child text element inside the parent
+  // The node of the first child text element inside the parent
   const childTextNode = findTextNode(parentElement);
 });
 ```
 
 #### `getAllParents()`
+
 This util extracts a list of all parents of an element, excepting the `<body>` and `<html>` tags
 
-| param | value |
-| ------ | ------ |
+| param              | value              |
+| ------------------ | ------------------ |
 | element: `Element` | The target element |
 
-| Return value: `HTMLElement[]` |
-| ------ | 
+| Return value: `HTMLElement[]`               |
+| ------------------------------------------- |
 | The first child node text element, if found |
 
 #### `getDistanceFromTop()`
+
 This util gets the distance between an element and the top of the window
 
-| param | value |
-| ------ | ------ |
+| param              | value              |
+| ------------------ | ------------------ |
 | element: `Element` | The target element |
 
 | Return value: `number` |
-| ------ | 
+| ---------------------- |
 | The distance in pixels |
 
 #### `getFormFieldValue()`
+
 This util gets the value of a given input element
 
-| param | value |
-| ------ | ------ |
+| param              | value         |
+| ------------------ | ------------- |
 | input: `FormField` | input element |
 
 | Return value: `string` |
-| ------ | 
-| The input field value |
+| ---------------------- |
+| The input field value  |
 
 #### `getHiddenParent()`
+
 This util finds the first hidden parent element, or the element itself (if hidden).
 If the element is already visible, the function returns `undefined`.
 
-| param | value |
-| ------ | ------ |
+| param                  | value                 |
+| ---------------------- | --------------------- |
 | element: `HTMLElement` | The reference element |
 
-| Return value: `HTMLElement | undefined` |
-| ------ | 
+| Return value: `HTMLElement       | undefined` |
+| -------------------------------- | ---------- |
 | Hidden parent element, if found. |
 
 #### `getObjectEntries()`
+
 A typesafe util for `Object.entries()`
 
-| param | value |
-| ------ | ------ |
+| param            | value      |
+| ---------------- | ---------- |
 | object: `Object` | The object |
 
 | Return value: `Entry<T>[]` |
-| ------ | 
+| -------------------------- |
 
 #### `getObjectKeys()`
+
 A util to get the keys of an object with inferred typing.
 
-| param | value |
-| ------ | ------ |
+| param            | value      |
+| ---------------- | ---------- |
 | object: `Object` | The object |
 
 | Return value: `string` |
-| ------ | 
+| ---------------------- |
 
 #### `getObjectKeys()`
+
 This util checks if an element is scrollable.
 
-| param | value |
-| ------ | ------ |
+| param              | value              |
+| ------------------ | ------------------ |
 | element: `Element` | The target element |
 
 | Return value: `Boolean` |
-| ------ | 
+| ----------------------- |
 
 #### `isVisible()`
+
 This util checks if an element is visible.
 
-| param | value |
-| ------ | ------ |
+| param                  | value              |
+| ---------------------- | ------------------ |
 | element: `HTMLElement` | The target element |
 
 | Return value: `Boolean` |
-| ------ | 
+| ----------------------- |
 
 #### `noop()`
-This util, well, does nothing. It is a no operation function. It literally, does nothing. 
+
+This util, well, does nothing. It is a no operation function. It literally, does nothing.
 
 #### `queryElement()`
+
 This util queries an element and make sure it's the correct type
 
-| param | value |
-| ------ | ------ |
-| selector: `string` | Selector string |
-| instance: `Instance<T>` | Instance target of the element type i.e HTMLElement |
-| scope: `ParentNode` | The scope context where to query. Defaults to document |
-| element: `HTMLElement` | The target element |
+| param                   | value                                                  |
+| ----------------------- | ------------------------------------------------------ |
+| selector: `string`      | Selector string                                        |
+| instance: `Instance<T>` | Instance target of the element type i.e HTMLElement    |
+| scope: `ParentNode`     | The scope context where to query. Defaults to document |
+| element: `HTMLElement`  | The target element                                     |
 
 #### `removeChildElements()`
+
 This util removes all child elements from a parent element
 
-| param | value |
-| ------ | ------ |
-| element: `Element` | Parent element |
+| param               | value                                                       |
+| ------------------- | ----------------------------------------------------------- |
+| element: `Element`  | Parent element                                              |
 | selector?: `string` | Optional: only remove the elements that match this selector |
 
 #### `removeSpaces()`
+
 This util removes all the spaces of a string.
 
-| param | value |
-| ------ | ------ |
+| param            | value      |
+| ---------------- | ---------- |
 | string: `string` | The string |
 
-| Return value: `string` |
-| ------ | 
-| The string without spaces. i.e "The quick brown foThequickbrownfox" |x" => "
+| Return value: `string`                                              |
+| ------------------------------------------------------------------- | ------- |
+| The string without spaces. i.e "The quick brown foThequickbrownfox" | x" => " |
 
 #### `removeTrailingSlash()`
+
 Compares if two arrays have the same exact values.
-    
-| param | value |
-| ------ | ------ |
+
+| param           | value                |
+| --------------- | -------------------- |
 | value: `string` | The value to mutate. |
 
 cc
@@ -1115,87 +1174,95 @@ cc
 ```
  This:
  https://www.finsweet.com/attributes/attractions/capri-island/
- 
+
  Becomes:
  https://www.finsweet.com/attributes/attractions/capri-island
 ```
 
 #### `sameValues()`
+
 This util compares if two arrays have the same exact values.
 
-| param | value |
-| ------ | ------ |
-| array1: `unkown[]` | First array. |
+| param              | value         |
+| ------------------ | ------------- |
+| array1: `unkown[]` | First array.  |
 | array2: `unkown[]` | Second array. |
 
 | Return value: `Boolean` |
-| ------ | 
+| ----------------------- |
 
 #### `setFormFieldValue()`
+
 With the help of this util you can set a value to a `FormField` element and emit `click`, `input` and `change` Events.
 
-| param | value |
-| ------ | ------ |
-| element: `element` | The value to mutate. |
-| value: `boolean / string` |  `boolean` for Checkboxes and Radios, `string` for the rest. |
+| param                     | value                                                       |
+| ------------------------- | ----------------------------------------------------------- |
+| element: `element`        | The value to mutate.                                        |
+| value: `boolean / string` | `boolean` for Checkboxes and Radios, `string` for the rest. |
 
 #### `simulateEvent()`
+
 This util dispatches a custom event that bubbles from the target.
 
-| param | value |
-| ------ | ------ |
+| param                 | value                                       |
+| --------------------- | ------------------------------------------- | ------------------------------------------- |
 | target: `EventTarget` | The element where the event will originate. |
-| target: `AllowedEvent | Array<AllowedEvent>` | The element where the event will originate. |
+| target: `AllowedEvent | Array<AllowedEvent>`                        | The element where the event will originate. |
 
 | List of `AllowedEvent` |
-| ------ |
-| `w-close` |
-| `DOMContentLoaded` |
-| `fullscreenchange` |
-| `fullscreenerror` |
-| `pointerlockchange` |
-| `readystatechange` |
-| `visibilitychange` |
+| ---------------------- |
+| `w-close`              |
+| `DOMContentLoaded`     |
+| `fullscreenchange`     |
+| `fullscreenerror`      |
+| `pointerlockchange`    |
+| `readystatechange`     |
+| `visibilitychange`     |
 
-| Return value: `Boolean` |
-| ------ | 
+| Return value: `Boolean`                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------- |
 | True if either event's cancelable attribute value is false or its preventDefault() method was not invoked, and false otherwise. |
 
 #### `throwError()`
+
 This util displays an alert and throw an exception.
 
-| param | value |
-| ------ | ------ |
+| param             | value         |
+| ----------------- | ------------- |
 | message: `string` | Error message |
 
-| Return value: `T` |
-| ------ | 
+| Return value: `T`                                                      |
+| ---------------------------------------------------------------------- |
 | The generic argument to assure type safety when querying DOM Elements. |
 
 #### `wait()`
+
 This util returns an awaitable promise for waiting X time.
 
-| param | value |
-| ------ | ------ |
+| param          | value      |
+| -------------- | ---------- |
 | time: `number` | Time in ms |
 
-| Return value: `Promise<unknown>` |
-| ------ | 
+| Return value: `Promise<unknown>`      |
+| ------------------------------------- |
 | Awaitable promise for waiting X time. |
 
 #### `extractNumberFromString()`
+
 This util converts a string to a number, removing any invalid symbols like `$` or `,`. If the function is not able to extract a valid number from the string, it will return `null`.
 
-| param | value |
-| ------ | ------ |
+| param           | value            |
+| --------------- | ---------------- |
 | value: `string` | A string number. |
 
 | Return value: `number \ null` |
-| ------ | 
-| The valid number value. |
+| ----------------------------- |
+| The valid number value.       |
 
 ### Contribute
+
 PRs are welcomed to this project. If you wish to improve the Finsweet Typescript Utils library, add functionality or improve the docs please feel free to submit a PR.
 
 ### License
-MIT © [Finsweet](https://github.com/finsweet)
+
+ISC © [Finsweet](https://github.com/finsweet)
