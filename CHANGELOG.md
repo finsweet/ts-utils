@@ -1,5 +1,11 @@
 # @finsweet/ts-utils
 
+## 0.37.3
+
+### Patch Changes
+
+- 59ac38c: docs: Added new README.md with detailed explanation of all utils
+
 ## 0.37.2
 
 ### Patch Changes
