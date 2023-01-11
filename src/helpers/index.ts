@@ -1,9 +1,8 @@
-import { extractNumberFromString } from './extractNumberFromString';
-
 export { addListener } from './addListener';
 export { clearFormField } from './clearFormField';
 export { cloneNode } from './cloneNode';
 export { extractCommaSeparatedValues } from './extractCommaSeparatedValues';
+export { extractNumberFromString } from './extractNumberFromString';
 export { extractNumberSuffix } from './extractNumberSuffix';
 export { findTextNode } from './findTextNode';
 export { getAllParents } from './getAllParents';
@@ -25,4 +24,3 @@ export { setFormFieldValue } from './setFormFieldValue';
 export { simulateEvent } from './simulateEvent';
 export { throwError } from './throwError';
 export { wait } from './wait';
-export {extractNumberFromString} from './extractNumberFromString';

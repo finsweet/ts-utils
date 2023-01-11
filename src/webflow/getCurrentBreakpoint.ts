@@ -1,6 +1,5 @@
-import { WEBFLOW_BREAKPOINTS } from './breakpoints';
-
 import type { WebflowBreakpoint } from './breakpoints';
+import { WEBFLOW_BREAKPOINTS } from './breakpoints';
 
 /**
  * Checks the current breakpoint based on the window media.

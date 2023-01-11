@@ -38,14 +38,14 @@ export const isHTMLSelectElement = (target: unknown): target is HTMLSelectElemen
 /**
  * @returns `true` if the target is an instance of HTMLTextAreaElement type.
  * @param target
- */  
+ */
 export const isHTMLTextAreaElement = (target: unknown): target is HTMLTextAreaElement =>
   target instanceof HTMLTextAreaElement;
 
 /**
  * @returns `true` if the target is an instance of HTMLVideoElement type.
  * @param target
- */  
+ */
 export const isHTMLVideoElement = (target: unknown): target is HTMLVideoElement => target instanceof HTMLVideoElement;
 
 /**
@@ -58,7 +58,7 @@ export const isHTMLAnchorElement = (target: unknown): target is HTMLAnchorElemen
 /**
  * @returns `true` if the target is an instance of HTMLImageElement type.
  * @param target
- */  
+ */
 export const isHTMLImageElement = (target: unknown): target is HTMLImageElement => target instanceof HTMLImageElement;
 
 /**
@@ -71,6 +71,6 @@ export const isHTMLOptionElement = (target: unknown): target is HTMLOptionElemen
 /**
  * @returns `true` if the target is an instance of HTMLButtonElement type.
  * @param target
- */  
+ */
 export const isHTMLButtonElement = (target: unknown): target is HTMLButtonElement =>
   target instanceof HTMLButtonElement;
