@@ -1,8 +1,7 @@
+import { isHTMLInputElement } from '../type-guards';
+import type { FormField } from '../types';
 import { FORM_CSS_CLASSES } from '../webflow/css';
 import { simulateEvent } from './simulateEvent';
-
-import type { FormField } from '../types';
-import { isHTMLInputElement } from '../type-guards';
 
 const {
   radioInput: radioInputCSSClass,

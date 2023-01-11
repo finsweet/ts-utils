@@ -1,5 +1,4 @@
 import { getSiteId } from '.';
-
 import type { WebflowModule } from './Webflow';
 
 /**

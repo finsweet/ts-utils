@@ -2,6 +2,7 @@ export { addListener } from './addListener';
 export { clearFormField } from './clearFormField';
 export { cloneNode } from './cloneNode';
 export { extractCommaSeparatedValues } from './extractCommaSeparatedValues';
+export { extractNumberFromString } from './extractNumberFromString';
 export { extractNumberSuffix } from './extractNumberSuffix';
 export { findTextNode } from './findTextNode';
 export { getAllParents } from './getAllParents';

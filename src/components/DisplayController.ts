@@ -1,9 +1,9 @@
+import { fadeIn, fadeOut } from '../animations/fade';
+import { queryElement } from '../helpers';
+import { isVisible } from '../helpers/isVisible';
+import { Debug } from '.';
 import type { InteractionParams } from './Interaction';
 import { Interaction } from './Interaction';
-import { fadeIn, fadeOut } from '../animations/fade';
-import { isVisible } from '../helpers/isVisible';
-import { queryElement } from '../helpers';
-import { Debug } from '.';
 
 // Types
 export interface DisplayControllerParams {
@@ -13,7 +13,7 @@ export interface DisplayControllerParams {
   element: HTMLElement | string;
 
   /**
-   * If the display must be controlled thorugh a Webflow interaction.
+   * If the display must be controlled through a Webflow interaction.
    */
   interaction?: InteractionParams;
 
@@ -22,7 +22,7 @@ export interface DisplayControllerParams {
    * Not applicable when interaction parameters ara passed to the instance, as it's assumed that the Webflow interaction will set the display property.
    * Defaults to `block`.
    */
-  displayProperty?: typeof DisplayController['displayProperties'][number];
+  displayProperty?: (typeof DisplayController)['displayProperties'][number];
 
   /**
    * If set to true, the element will be straitgh showed / hidden without any transition.

@@ -1,7 +1,6 @@
-import { simulateEvent } from '.';
-
 import type { FormField } from '..';
 import { isHTMLInputElement } from '..';
+import { simulateEvent } from '.';
 
 /**
  * Sets a value to a FormField element and emits `click`, `input` and `change` Events.

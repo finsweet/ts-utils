@@ -1,6 +1,5 @@
-import { CMS_CSS_CLASSES, getCollectionElements } from '.';
-
 import type { CollectionListWrapperElement } from '..';
+import { CMS_CSS_CLASSES, getCollectionElements } from '.';
 
 /**
  * Queries `Collection List Wrapper` elements and makes sure they are unique.

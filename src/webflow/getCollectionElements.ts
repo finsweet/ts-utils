@@ -1,5 +1,3 @@
-import { CMS_CSS_CLASSES } from '.';
-
 import type {
   CollectionEmptyElement,
   CollectionItemElement,
@@ -9,6 +7,7 @@ import type {
   PaginationButtonElement,
   PaginationWrapperElement,
 } from '..';
+import { CMS_CSS_CLASSES } from '.';
 
 const { wrapper, list, paginationWrapper, paginationNext, paginationPrevious, emptyState, pageCount } = CMS_CSS_CLASSES;
 
