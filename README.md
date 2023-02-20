@@ -330,6 +330,10 @@ medium
 
 Extracts the publish date of a Webflow site.
 
+| param             | value                                                                |
+| ----------------- | -------------------------------------------------------------------- |
+| page?: `Document` | The page to get the publish date from. Defaults to the current page. |
+
 | Return value: `String` |
 | ---------------------- |
 | Date object            |
@@ -354,7 +358,11 @@ Fri Dec 16 2022 11:48:06 GMT+0530 (India Standard Time)
 
 #### `getSiteId()`
 
-Extracts the Webflow Site ID of the website
+Extracts the Webflow Site ID of the website.
+
+| param             | value                                                           |
+| ----------------- | --------------------------------------------------------------- |
+| page?: `Document` | The page to get the site ID from. Defaults to the current page. |
 
 | Return value: `String` |
 | ---------------------- |
