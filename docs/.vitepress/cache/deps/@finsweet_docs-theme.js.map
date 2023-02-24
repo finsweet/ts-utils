@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../node_modules/@finsweet/docs-theme/src/index.ts"],
+  "sourcesContent": ["import './custom.css';\n\nimport DefaultTheme from 'vitepress/theme';\n\nexport default DefaultTheme;\n"],
+  "mappings": ";AAAA,OAAO;AAEP,OAAO,kBAAkB;AAEzB,IAAO,cAAQ;",
+  "names": []
+}

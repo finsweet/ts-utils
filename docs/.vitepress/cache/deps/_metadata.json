@@ -1,0 +1,19 @@
+{
+  "hash": "c8d13333",
+  "browserHash": "f5b729d1",
+  "optimized": {
+    "vue": {
+      "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "945a0a7f",
+      "needsInterop": false
+    },
+    "@finsweet/docs-theme": {
+      "src": "../../../../node_modules/@finsweet/docs-theme/src/index.ts",
+      "file": "@finsweet_docs-theme.js",
+      "fileHash": "36edda38",
+      "needsInterop": false
+    }
+  },
+  "chunks": {}
+}
