@@ -1,5 +1,11 @@
 # @finsweet/ts-utils
 
+## 0.38.0
+
+### Minor Changes
+
+- 5d5140d: feat: added optional `page` argument to `getSiteId` and `getPublishDate`.
+
 ## 0.37.3
 
 ### Patch Changes
