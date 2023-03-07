@@ -1,6 +1,6 @@
 export default {
   title: 'Finsweet ts-utils',
-  description: 'An awesome docs template built by me',
+  description: 'A fully tree shakeable and strongly typed utility library for TypeScript and Webflow',
 
   themeConfig: {
     aside: true,
@@ -22,33 +22,21 @@ export default {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/finsweet', target: '_blank' },
       { icon: 'twitter', link: 'https://twitter.com/thatsfinsweet', target: '_blank' },
-      { icon: 'slack', link: 'https://twitter.com/thatsfinsweet', target: '_blank' },
+      { icon: 'slack', link: 'https://finsweet.com/community/plus', target: '_blank' },
+      { icon: 'linkedin', link: 'https://www.linkedin.com/company/finsweet/', target: '_blank' },
     ],
     // Sidebar
     sidebar: [
       {
-        text: 'Introduction',
+        text: 'Table of Contents',
         collapsed: false,
         items: [
-          { text: 'Getting Started', link: '/getting-started' },
-          { text: 'How it works', link: '/how-it-works' },
-          { text: 'Deployment', link: '/deployment' },
-        ],
-      },
-      {
-        text: 'Introduction',
-        collapsed: false,
-        items: [
-          { text: 'Getting Started', link: '/getting-started' },
-          { text: 'How it works', link: '/how-it-works' },
-        ],
-      },
-      {
-        text: 'Introduction',
-        collapsed: false,
-        items: [
-          { text: 'Getting Started', link: '/getting-started' },
-          { text: 'How it works', link: '/how-it-works' },
+          { text: 'Get Started', link: '/get-started' },
+          { text: 'Webflow', link: '/webflow' },
+          { text: 'Components', link: '/components' },
+          { text: 'Type Guards', link: '/type-guards' },
+          { text: 'Types', link: '/types' },
+          { text: 'Helpers', link: '/helpers' },
         ],
       },
     ],

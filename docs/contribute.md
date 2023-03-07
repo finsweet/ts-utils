@@ -1,7 +1,7 @@
 ---
 prev: 
-  text: 'extractNumberFromString()'
-  link: '/extractNumberFromString'
+  text: 'Helpers'
+  link: '/helpers'
 next: false
 ---
 

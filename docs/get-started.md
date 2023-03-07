@@ -3,12 +3,13 @@ prev: false
   # text: 'Markdown'
   # link: '/guide/markdown'
 next:
-  text: 'Breakpoints'
-  link: '/breakpoints'
+  text: 'Webflow'
+  link: '/webflow'
 ---
 
 ![banner](https://res.cloudinary.com/dfxtzg164/image/upload/v1670266641/logo_full_black_u3khkr.svg)
 
+# Get Started
 ## Introduction
 
 Typescript utils for custom Webflow projects. This project contains different categories of utils that can be used in any project.
