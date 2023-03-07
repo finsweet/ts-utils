@@ -1,7 +1,7 @@
 export default {
   title: 'Finsweet Open Source',
   description: 'A fully tree shakeable and strongly typed utility library for TypeScript and Webflow',
-
+  cleanUrls: true,
   themeConfig: {
     aside: true,
     // Navbar Link
