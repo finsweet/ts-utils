@@ -1,11 +1,9 @@
 export default {
-  title: 'Finsweet ts-utils',
+  title: 'Finsweet Open Source',
   description: 'A fully tree shakeable and strongly typed utility library for TypeScript and Webflow',
 
   themeConfig: {
     aside: true,
-    logo: 'https://res.cloudinary.com/dfxtzg164/image/upload/v1670266641/logo_full_black_u3khkr.svg',
-    siteTitle: 'ts-utils',
     // Navbar Link
     nav: [
       {

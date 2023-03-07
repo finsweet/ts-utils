@@ -7,7 +7,6 @@ next:
   link: '/webflow'
 ---
 
-![banner](https://res.cloudinary.com/dfxtzg164/image/upload/v1670266641/logo_full_black_u3khkr.svg)
 
 # Get Started
 ## Introduction
