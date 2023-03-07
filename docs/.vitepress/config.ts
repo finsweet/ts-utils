@@ -9,12 +9,19 @@ export default {
     // Navbar Link
     nav: [
       {
-        // Dropdown Menu
+        // Dropdown Menu (Manual for now)
+        // TODO: there is an open issue for this: https://github.com/vuejs/vitepress/issues/1550
         text: 'Changelog',
         items: [
-          { text: 'v0.0.1', link: '/item-1' },
-          { text: 'v0.0.2', link: '/item-2' },
-          { text: 'v0.0.3', link: '/item-3' },
+          {
+            text: 'v0.38.0',
+            link: 'https://github.com/finsweet/ts-utils/releases/tag/v0.38.0',
+            target: '_blank',
+          },
+          { text: 'v0.37.3', link: 'https://github.com/finsweet/ts-utils/releases/tag/v0.37.3', target: '_blank' },
+          { text: 'v0.37.2', link: 'https://github.com/finsweet/ts-utils/releases/tag/v0.37.2', target: '_blank' },
+          { text: 'v0.37.1', link: 'https://github.com/finsweet/ts-utils/releases/tag/v0.37.1', target: '_blank' },
+          { text: 'v0.37.0', link: 'https://github.com/finsweet/ts-utils/releases/tag/v0.37.0', target: '_blank' },
         ],
       },
     ],
