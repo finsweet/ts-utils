@@ -7,6 +7,17 @@ export default {
     // Navbar Link
     nav: [
       {
+        text: 'Finsweet Docs',
+        items: [
+          {
+            text: 'ts-utils',
+            link: '/get-started',
+          },
+          { text: 'attributes', link: 'https://finsweet.com/attributes', target: '_blank' },
+          { text: 'Wized', link: 'https://wized.com/', target: '_blank' },
+        ],
+      },
+      {
         // Dropdown Menu (Manual for now)
         // TODO: there is an open issue for this: https://github.com/vuejs/vitepress/issues/1550
         text: 'Changelog',
@@ -32,6 +43,18 @@ export default {
     ],
     // Sidebar
     sidebar: [
+      {
+        text: 'Finsweet Docs',
+        collapsed: false,
+        items: [
+          {
+            text: 'ts-utils',
+            link: '/get-started',
+          },
+          { text: 'attributes', link: 'https://finsweet.com/attributes', target: '_blank' },
+          { text: 'Wized', link: 'https://wized.com/', target: '_blank' },
+        ],
+      },
       {
         text: 'Table of Contents',
         collapsed: false,
