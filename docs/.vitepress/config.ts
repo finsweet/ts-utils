@@ -2,6 +2,15 @@ export default {
   title: 'Finsweet Open Source',
   description: 'A fully tree shakeable and strongly typed utility library for TypeScript and Webflow',
   cleanUrls: true,
+  head: [
+    [
+      'script',
+      {
+        src: '/index.js', // inject github versions to navbar
+        defer: true,
+      },
+    ],
+  ],
   themeConfig: {
     aside: true,
     // Navbar Link
@@ -21,17 +30,7 @@ export default {
         // Dropdown Menu (Manual for now)
         // TODO: there is an open issue for this: https://github.com/vuejs/vitepress/issues/1550
         text: 'Changelog',
-        items: [
-          {
-            text: 'v0.38.0',
-            link: 'https://github.com/finsweet/ts-utils/releases/tag/v0.38.0',
-            target: '_blank',
-          },
-          { text: 'v0.37.3', link: 'https://github.com/finsweet/ts-utils/releases/tag/v0.37.3', target: '_blank' },
-          { text: 'v0.37.2', link: 'https://github.com/finsweet/ts-utils/releases/tag/v0.37.2', target: '_blank' },
-          { text: 'v0.37.1', link: 'https://github.com/finsweet/ts-utils/releases/tag/v0.37.1', target: '_blank' },
-          { text: 'v0.37.0', link: 'https://github.com/finsweet/ts-utils/releases/tag/v0.37.0', target: '_blank' },
-        ],
+        items: [{ text: ' A', link: '/item-1', target: '_blank', id: 'version-link' }],
       },
     ],
     // Social Icons

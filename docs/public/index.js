@@ -1,5 +1,7 @@
 (async () => {
+  // update github versions
   const response = await fetch('https://api.github.com/repos/finsweet/ts-utils/releases');
+  console.log('response', response);
 
   const versions = await response.json();
 
@@ -11,8 +13,6 @@
       target: '_blank',
     };
   });
-
-  //
 
   const navDropdowns = document?.querySelectorAll('.VPFlyout.VPNavBarMenuGroup');
 
@@ -40,5 +40,44 @@
         linkTemplateParent.appendChild(link);
       });
     }
+  });
+
+  // update ts-utils link
+
+  const links = document?.querySelectorAll('a p');
+
+  const tsUtilsLink = Array?.from(links)?.filter((link) => {
+    return link?.innerText === 'ts-utils';
+  });
+
+  if (tsUtilsLink?.length === 0) return;
+
+  const tsUtilsLinkWrapper = tsUtilsLink[0]?.parentElement?.parentElement?.parentElement;
+
+  tsUtilsLinkWrapper?.classList.add('is-active');
+  tsUtilsLinkWrapper?.classList.add('has-active');
+
+  const callback = (mutations) => {
+    mutations?.forEach((mutation) => {
+      if (mutation.type === 'childList') {
+        if (!tsUtilsLinkWrapper?.classList?.contains('is-active')) {
+          tsUtilsLinkWrapper?.classList?.add('is-active');
+        }
+
+        if (!tsUtilsLinkWrapper?.classList?.contains('has-active')) {
+          tsUtilsLinkWrapper?.classList?.add('has-active');
+        }
+      }
+    });
+  };
+
+  const observer = new MutationObserver(callback);
+  const body = document?.body;
+
+  if (!body) return;
+
+  observer?.observe(body, {
+    childList: true,
+    subtree: true,
   });
 })();
