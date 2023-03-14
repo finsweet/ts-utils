@@ -1,5 +1,11 @@
 # @finsweet/ts-utils
 
+## 0.39.0
+
+### Minor Changes
+
+- 213cd2f: add documentation with vitepress
+
 ## 0.38.0
 
 ### Minor Changes
