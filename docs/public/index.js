@@ -38,6 +38,7 @@
         linkText.target = update.target;
 
         linkTemplateParent.appendChild(link);
+        link.classList.add('active');
       });
     }
   });
@@ -45,17 +46,23 @@
   // update ts-utils link
 
   const links = document?.querySelectorAll('a p');
+  const linksNavbar = document?.querySelectorAll('.VPNavBarMenu .VPLink.link');
 
   const tsUtilsLink = Array?.from(links)?.filter((link) => {
     return link?.innerText === 'ts-utils';
   });
+  const tsUtilsLinkNavbar = Array?.from(linksNavbar)?.filter((link) => {
+    return link?.innerHTML.includes('ts-utils');
+  });
 
-  if (tsUtilsLink?.length === 0) return;
+  if (tsUtilsLink?.length === 0 || tsUtilsLinkNavbar?.length === 0) return;
 
   const tsUtilsLinkWrapper = tsUtilsLink[0]?.parentElement?.parentElement?.parentElement;
+  const [navbarLink] = tsUtilsLinkNavbar;
 
   tsUtilsLinkWrapper?.classList.add('is-active');
   tsUtilsLinkWrapper?.classList.add('has-active');
+  navbarLink?.classList.add('active');
 
   const callback = (mutations) => {
     mutations?.forEach((mutation) => {
@@ -66,6 +73,10 @@
 
         if (!tsUtilsLinkWrapper?.classList?.contains('has-active')) {
           tsUtilsLinkWrapper?.classList?.add('has-active');
+        }
+
+        if (!navbarLink?.classList?.contains('active')) {
+          navbarLink?.classList?.add('active');
         }
       }
     });
