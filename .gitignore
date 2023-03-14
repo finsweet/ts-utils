@@ -26,3 +26,6 @@ typings/
 
 # Production files
 dist
+
+# vitepress files
+docs/.vitepress/cache

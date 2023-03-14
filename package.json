@@ -15,6 +15,9 @@
     "url": "git+https://github.com/finsweet/ts-utils.git"
   },
   "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
     "build": "tsc",
     "lint": "eslint --ignore-path .gitignore ./src && prettier --check ./src",
     "lint:fix": "eslint --ignore-path .gitignore ./src --fix",
@@ -42,13 +45,17 @@
   "devDependencies": {
     "@changesets/changelog-git": "^0.1.14",
     "@changesets/cli": "^2.26.0",
+    "@finsweet/docs-theme": "^0.1.8",
     "@finsweet/eslint-config": "^2.0.2",
-    "@typescript-eslint/eslint-plugin": "^5.52.0",
-    "@typescript-eslint/parser": "^5.52.0",
-    "eslint": "^8.34.0",
-    "eslint-config-prettier": "^8.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "prettier": "^2.8.4",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vitepress": "1.0.0-alpha.50",
+    "vue": "^3.2.47"
   }
 }
