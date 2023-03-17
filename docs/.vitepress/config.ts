@@ -24,7 +24,7 @@ export default {
         items: [
           {
             text: 'ts-utils',
-            link: '/get-started',
+            link: '/',
           },
           { text: 'attributes', link: 'https://finsweet.com/attributes', target: '_blank' },
           { text: 'Wized', link: 'https://wized.com/', target: '_blank' },
@@ -52,7 +52,7 @@ export default {
         items: [
           {
             text: 'ts-utils',
-            link: '/get-started',
+            link: '/',
           },
           { text: 'attributes', link: 'https://finsweet.com/attributes', target: '_blank' },
           { text: 'Wized', link: 'https://wized.com/', target: '_blank' },
@@ -62,7 +62,7 @@ export default {
         text: 'Table of Contents',
         collapsed: false,
         items: [
-          { text: 'Get Started', link: '/get-started' },
+          { text: 'Get Started', link: '/' },
           { text: 'Webflow', link: '/webflow' },
           { text: 'Components', link: '/components' },
           { text: 'Type Guards', link: '/type-guards' },

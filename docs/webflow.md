@@ -1,7 +1,7 @@
 ---
-prev: 
+prev:
   text: 'Get started'
-  link: '/get-started'
+  link: '/'
 next:
   text: 'Components'
   link: '/components'
