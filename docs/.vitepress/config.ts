@@ -11,6 +11,7 @@ export default {
       },
     ],
   ],
+  base: '/open-source/ts-utils/',
   rewrites: {
     'get-started.md': 'index.md',
   },
