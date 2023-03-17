@@ -6,7 +6,7 @@ export default {
     [
       'script',
       {
-        src: '/index.js', // inject github versions to navbar
+        src: '/open-source/ts-utils/index.js', // inject github versions to navbar
         defer: true,
       },
     ],
