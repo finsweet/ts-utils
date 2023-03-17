@@ -11,6 +11,9 @@ export default {
       },
     ],
   ],
+  rewrites: {
+    'get-started.md': 'index.md',
+  },
   themeConfig: {
     aside: true,
     // Navbar Link
