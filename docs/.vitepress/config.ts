@@ -39,7 +39,7 @@ export default {
     ],
     // Social Icons
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/finsweet', target: '_blank' },
+      { icon: 'github', link: 'https://github.com/finsweet/ts-utils', target: '_blank' },
       { icon: 'twitter', link: 'https://twitter.com/thatsfinsweet', target: '_blank' },
       { icon: 'slack', link: 'https://finsweet.com/community/plus', target: '_blank' },
       { icon: 'linkedin', link: 'https://www.linkedin.com/company/finsweet/', target: '_blank' },
