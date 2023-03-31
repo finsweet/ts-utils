@@ -1,5 +1,11 @@
 # @finsweet/ts-utils
 
+## 0.39.1
+
+### Patch Changes
+
+- 005270c: update readme file to just include link to main ts-utils documentation page
+
 ## 0.39.0
 
 ### Minor Changes
