@@ -1,5 +1,11 @@
 # @finsweet/ts-utils
 
+## 0.39.2
+
+### Patch Changes
+
+- 1e75299: improved type definition for Webflow.push() callbacks
+
 ## 0.39.1
 
 ### Patch Changes
