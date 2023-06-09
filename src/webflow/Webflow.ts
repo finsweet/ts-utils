@@ -1,7 +1,7 @@
 /**
  * Callback type for the Webflow.push() method.
  */
-type Callback = () => unknown;
+type Callback = (value?: unknown) => unknown;
 
 export type WebflowModule = 'ix2' | 'commerce' | 'lottie' | 'lightbox' | 'slider' | 'tabs';
 
