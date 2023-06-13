@@ -1,5 +1,5 @@
 ---
-prev: 
+prev:
   text: 'Type Guards'
   link: '/type-guards'
 next:
@@ -9,10 +9,23 @@ next:
 
 # Types
 
-
 ## `FormField`
 
 `FormField` is the Form Field element on Webflow
+
+## `LooseAutocomplete`
+
+A type that allows for variable autocompletion with loose validation.
+
+Example:
+
+```typescript
+const f = (a: LooseAutocomplete<'a' | 'b'>) => a;
+f(''); // VSCode autocomplete shows 'a' and 'b' as options, but doesn't fail when a different option is provided.
+f('a'); // Valid
+f('b'); // Valid
+f('c'); // Valid
+```
 
 ## `MapEntries`
 
