@@ -1,5 +1,11 @@
 # @finsweet/ts-utils
 
+## 0.40.0
+
+### Minor Changes
+
+- cf755c9: Added new `LooseAutocomplete` type
+
 ## 0.39.2
 
 ### Patch Changes
